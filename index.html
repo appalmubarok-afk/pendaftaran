@@ -596,6 +596,29 @@
     .lap-photos{display:flex;gap:8px;flex-wrap:wrap;}
     .lap-ph{width:92px;height:92px;border-radius:10px;border:1px solid var(--line);background:#EEF0F8;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--ink-soft);overflow:hidden;}
     .lap-ph img{width:100%;height:100%;object-fit:cover;cursor:zoom-in;}
+
+    /* agenda: tampilan ringkas & rapi (menimpa ukuran tombol/teks global) */
+    #panel-agenda #agendaList{max-width:820px;}
+    #panel-agenda .a-panel-head{margin-bottom:16px;}
+    #panel-agenda .a-toolbar{margin-bottom:14px;}
+    #panel-agenda .btn{font-size:12.5px;padding:7px 13px;min-height:0;border-radius:8px;font-weight:600;}
+    #panel-agenda .ag-card{padding:13px 16px 12px;margin-bottom:10px;border-radius:12px;border-left:4px solid var(--line);box-shadow:0 1px 2px rgba(20,28,92,.04);transition:box-shadow .2s;}
+    #panel-agenda .ag-card:hover{box-shadow:0 6px 18px rgba(20,28,92,.08);}
+    #panel-agenda .ag-b-Akan{border-left-color:#5B6BD6;}
+    #panel-agenda .ag-b-Berlangsung{border-left-color:#E4A73B;}
+    #panel-agenda .ag-b-Selesai{border-left-color:#2E8B7B;}
+    #panel-agenda .ag-head{margin-bottom:10px;align-items:center;}
+    #panel-agenda .ag-head h3{font-size:15.5px;line-height:1.3;margin:0 0 3px;}
+    #panel-agenda .ag-date{font-size:12.5px;}
+    #panel-agenda .ag-st{font-size:11.5px;padding:3px 10px;}
+    #panel-agenda .a-actions{gap:6px;}
+    #panel-agenda .ag-lap{margin-top:12px;padding-top:12px;}
+    #panel-agenda .lap-item{padding:10px 13px;margin-bottom:8px;border-radius:10px;}
+    #panel-agenda .lap-top b{font-size:13.5px;}
+    #panel-agenda .lap-meta{font-size:12px;}
+    #panel-agenda .lap-ket{font-size:13.5px;margin:5px 0 8px;line-height:1.5;}
+    #panel-agenda .lap-ph{width:72px;height:72px;border-radius:8px;}
+    #panel-agenda .a-empty-state{padding:22px 14px;font-size:13.5px;}
     .ph-prev{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
     .ph-prev div{position:relative;width:78px;height:78px;border-radius:10px;overflow:hidden;border:1px solid var(--line);}
     .ph-prev img{width:100%;height:100%;object-fit:cover;}
@@ -1929,7 +1952,7 @@
     }
     box.innerHTML = A.agendas.map(function(a){
       var open = !!A.openAgenda[a.id], cls = a.status.split(' ')[0];
-      return '<div class="ag-card" data-ag="' + attr(a.id) + '"><div class="ag-head"><div><h3>' + esc(a.nama) + '</h3><div class="ag-date">📅 ' + esc(rangeLabel(a.mulai, a.selesai)) + '</div></div><span class="ag-st ag-' + cls + '">' + esc(a.status) + '</span></div>' +
+      return '<div class="ag-card ag-b-' + cls + '" data-ag="' + attr(a.id) + '"><div class="ag-head"><div><h3>' + esc(a.nama) + '</h3><div class="ag-date">📅 ' + esc(rangeLabel(a.mulai, a.selesai)) + '</div></div><span class="ag-st ag-' + cls + '">' + esc(a.status) + '</span></div>' +
         '<div class="a-actions"><button class="btn btn-ghost btn-sm" data-act="toggle">' + (open ? 'Sembunyikan' : 'Lihat') + ' Laporan (' + lapOf(a.id).length + ')</button>' +
         (can('laporan.write') ? '<button class="btn btn-primary btn-sm" data-act="addlap">+ Tambah Laporan</button>' : '') +
         (can('agenda.write') ? '<button class="btn btn-ghost btn-sm" data-act="edit">Ubah</button><button class="btn btn-danger btn-sm" data-act="del">Hapus</button>' : '') + '</div>' +

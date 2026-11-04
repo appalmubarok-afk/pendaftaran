@@ -678,6 +678,33 @@
       .a-sidebar-bottom{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;}
     }
 
+    /* ===== ADMIN HP: judul/user/keluar di atas, menu di bawah (geser horizontal) ===== */
+    .a-topbar{display:none;}
+    .a-nav{display:contents;}
+    .a-nav-item .ni{font-size:inherit;line-height:1;}
+    @media(max-width:860px){
+      #adminApp .a-topbar{display:flex;position:fixed;top:0;left:0;right:0;z-index:50;align-items:center;gap:8px;
+        background:var(--navy-deep);color:#fff;padding:env(safe-area-inset-top,0px) 12px 0;height:calc(52px + env(safe-area-inset-top,0px));box-shadow:0 2px 12px rgba(0,0,0,.18);}
+      .at-title{flex:none;font-family:'Bricolage Grotesque','Figtree',sans-serif;font-weight:800;font-size:16px;}
+      .at-me{flex:1;min-width:0;text-align:right;line-height:1.15;}
+      .at-me b{display:block;font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+      .at-me .a-role{margin-top:2px;font-size:9px;padding:1px 7px;}
+      .at-btn{flex:none;border:0;background:rgba(255,255,255,.12);color:#fff;border-radius:8px;padding:7px 10px;font:600 12.5px 'Figtree',sans-serif;cursor:pointer;}
+      .at-btn:active{background:rgba(255,255,255,.22);}
+
+      #adminApp .a-sidebar{position:fixed;top:auto;left:0;right:0;bottom:0;width:100%;height:auto;display:block;overflow:visible;
+        padding:0 0 env(safe-area-inset-bottom,0px);z-index:50;box-shadow:0 -6px 20px rgba(0,0,0,.2);}
+      #adminApp .a-sidebar h2,#adminApp .a-sidebar .sub,#adminApp .a-sidebar .a-me,#adminApp .a-sidebar-bottom{display:none;}
+      #adminApp .a-nav{display:flex;gap:2px;overflow-x:auto;overflow-y:hidden;padding:5px 6px;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain;}
+      #adminApp .a-nav::-webkit-scrollbar{display:none;}
+      #adminApp .a-nav .a-nav-item{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+        min-width:74px;margin:0;padding:7px 8px;border-radius:10px;text-align:center;white-space:nowrap;line-height:1.1;}
+      #adminApp .a-nav .ni{font-size:20px;}
+      #adminApp .a-nav .nt{font-size:10.5px;font-weight:600;}
+      #adminApp .a-nav .a-nav-item.active{background:rgba(255,255,255,.14);box-shadow:inset 0 2px 0 var(--gold);}
+      #adminApp .a-main{margin-left:0;max-width:none;padding:calc(52px + env(safe-area-inset-top,0px) + 16px) 14px calc(76px + env(safe-area-inset-bottom,0px) + 16px);}
+    }
+
     /* ===== LOADER BERTEMA PEMBELAJARAN ===== */
     html.ldr-lock{overflow:hidden;}
     .ldr{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;color:#fff;overflow:hidden;
@@ -1055,18 +1082,26 @@
   <div class="modal-overlay" id="lightbox"><img id="lbImg" alt="Dokumentasi"></div>
 
   <div id="adminApp">
+    <div class="a-topbar">
+      <div class="at-title">Portal SPMB</div>
+      <div class="at-me"><b id="meName2"></b><span class="a-role" id="meRole2"></span></div>
+      <button type="button" class="at-btn" id="pubBtn2" aria-label="Lihat halaman publik">👁</button>
+      <button type="button" class="at-btn" id="logoutBtn2">↩ Keluar</button>
+    </div>
     <div class="a-sidebar">
       <h2>Portal SPMB</h2>
       <div class="sub">Panel pengelola</div>
       <div class="a-me"><b id="meName"></b><span class="a-role" id="meRole"></span></div>
-      <div class="a-nav-item" data-panel="rekap" data-perm="rekap.read">📊 Rekap Siswa</div>
-      <div class="a-nav-item" data-panel="pendaftar" data-perm="pendaftar.read">👥 Data Pendaftar</div>
-      <div class="a-nav-item" data-panel="agenda" data-perm="agenda.read">📅 Agenda SPMB</div>
-      <div class="a-nav-item" data-panel="tampilan" data-perm="settings">🎨 Tampilan &amp; Banner</div>
-      <div class="a-nav-item" data-panel="alur" data-perm="settings">🧭 Alur Pendaftaran</div>
-      <div class="a-nav-item" data-panel="menu" data-perm="settings">🗂️ Menu &amp; Persyaratan</div>
-      <div class="a-nav-item" data-panel="pengguna" data-perm="users.manage">🧑‍🏫 Pengguna &amp; Role</div>
-      <div class="a-nav-item" data-panel="akun">🔐 Akun Saya</div>
+      <div class="a-nav">
+      <div class="a-nav-item" data-panel="rekap" data-perm="rekap.read"><span class="ni">📊</span><span class="nt">Rekap Siswa</span></div>
+      <div class="a-nav-item" data-panel="pendaftar" data-perm="pendaftar.read"><span class="ni">👥</span><span class="nt">Data Pendaftar</span></div>
+      <div class="a-nav-item" data-panel="agenda" data-perm="agenda.read"><span class="ni">📅</span><span class="nt">Agenda SPMB</span></div>
+      <div class="a-nav-item" data-panel="tampilan" data-perm="settings"><span class="ni">🎨</span><span class="nt">Tampilan &amp; Banner</span></div>
+      <div class="a-nav-item" data-panel="alur" data-perm="settings"><span class="ni">🧭</span><span class="nt">Alur Pendaftaran</span></div>
+      <div class="a-nav-item" data-panel="menu" data-perm="settings"><span class="ni">🗂️</span><span class="nt">Menu &amp; Persyaratan</span></div>
+      <div class="a-nav-item" data-panel="pengguna" data-perm="users.manage"><span class="ni">🧑‍🏫</span><span class="nt">Pengguna &amp; Role</span></div>
+      <div class="a-nav-item" data-panel="akun"><span class="ni">🔐</span><span class="nt">Akun Saya</span></div>
+      </div>
       <div class="a-sidebar-bottom">
         <a class="a-logout" id="backToPublic" href="#">👁 Lihat Halaman Publik</a>
         <div class="a-logout" id="logoutBtn">↩ Keluar</div>
@@ -1678,12 +1713,27 @@
   }
   function leave(){
     document.body.classList.remove('in-admin');
+    $('loginOverlay').classList.remove('open');
     document.title = 'SPMB ' + ($('navBrandName').textContent || '');
   }
-  function apply(){ if (isAdminRoute()) enter(); else leave(); }
+  function apply(){ if (isAdminRoute()) { enter(); syncPanel(); } else leave(); }
+  // panel aktif tercatat di URL (#admin/nama) agar tombol back/forward berpindah antar menu
+  var CUR_PANEL = '';
+  function panelFromHash(){ var m = /^#admin\/([a-z]+)/i.exec(location.hash); return m ? m[1].toLowerCase() : ''; }
+  function panelAllowed(name){
+    return [].some.call(document.querySelectorAll('.a-nav-item[data-panel]'), function(n){ return n.dataset.panel === name && n.style.display !== 'none'; });
+  }
+  function panelUrl(name){ return location.pathname + location.search + '#admin/' + name; }
+  function syncPanel(){
+    if (!(A.me && A.token)) return;
+    var p = panelFromHash();
+    if (p && p !== CUR_PANEL && panelAllowed(p)) gotoPanel(p);
+  }
   function goPublic(e){ e.preventDefault(); history.replaceState(null, '', location.pathname); apply(); }
   $('loginBack').addEventListener('click', goPublic);
   $('backToPublic').addEventListener('click', goPublic);
+  $('pubBtn2').addEventListener('click', goPublic);
+  $('logoutBtn2').addEventListener('click', function(){ $('logoutBtn').click(); });
   [].forEach.call(document.querySelectorAll('[data-admin-link]'), function(a){
     a.addEventListener('click', function(e){
       e.preventDefault();
@@ -1736,6 +1786,7 @@
     A.me = me; A.perms = me.perms || [];
     $('meName').textContent = me.nama || me.username;
     $('meRole').textContent = me.role === 'admin' ? 'Admin' : 'Guru';
+    $('meName2').textContent = $('meName').textContent; $('meRole2').textContent = $('meRole').textContent;
     [].forEach.call(document.querySelectorAll('.a-nav-item[data-perm]'), function(n){ n.style.display = can(n.dataset.perm) ? '' : 'none'; });
     $('openSheetBtn').style.display = can('settings') ? '' : 'none';
     $('addAgendaBtn').style.display = can('agenda.write') ? '' : 'none';
@@ -1749,7 +1800,9 @@
     if (A.rekap) renderRekap();
     renderPendaftar(); renderAgenda(); renderUsers();
     var first = [].filter.call(document.querySelectorAll('.a-nav-item[data-panel]'), function(n){ return n.style.display !== 'none'; })[0];
-    gotoPanel(first ? first.dataset.panel : 'akun');
+    var want = panelFromHash(), start = (want && panelAllowed(want)) ? want : (first ? first.dataset.panel : 'akun');
+    gotoPanel(start);
+    try { history.replaceState({ adm: start }, '', panelUrl(start)); } catch (err) { /* abaikan */ }
     prefetchFotos();   // foto dokumentasi diunduh di latar belakang
   }
   function initSession(){
@@ -1763,13 +1816,19 @@
 
   // Pindah menu = hanya menampilkan data yang sudah dimuat (tanpa loading).
   function gotoPanel(name){
+    CUR_PANEL = name;
     [].forEach.call(document.querySelectorAll('.a-nav-item[data-panel]'), function(i){ i.classList.toggle('active', i.dataset.panel === name); });
     [].forEach.call(document.querySelectorAll('.a-panel'), function(p){ p.classList.toggle('active', p.id === 'panel-' + name); });
     if ((name === 'tampilan' || name === 'alur' || name === 'menu') && !A.settingsLoaded) ensureSettings();
     window.scrollTo(0, 0);
   }
   [].forEach.call(document.querySelectorAll('.a-nav-item[data-panel]'), function(item){
-    item.addEventListener('click', function(){ gotoPanel(item.dataset.panel); });
+    item.addEventListener('click', function(){
+      var n = item.dataset.panel;
+      if (n === CUR_PANEL) return;
+      gotoPanel(n);
+      try { history.pushState({ adm: n }, '', panelUrl(n)); } catch (err) { /* abaikan */ }
+    });
   });
   document.addEventListener('click', function(e){
     var c = e.target.closest('[data-close]'); if (c) closeM(c.dataset.close);
@@ -2293,6 +2352,34 @@
       b.setAttribute('aria-label', show ? 'Sembunyikan password' : 'Tampilkan password');
     });
     wrap.appendChild(b);
+  });
+})();
+</script>
+<script>
+// Tombol back browser/HP menutup jendela (modal) yang terbuka, bukan meninggalkan halaman
+(function(){
+  var stack = [], skip = 0, ignorePop = 0;
+  var obs = new MutationObserver(function(list){
+    list.forEach(function(m){
+      var el = m.target; if (!el.id || el.id === 'loginOverlay') return;
+      var open = el.classList.contains('open'), i = stack.indexOf(el.id);
+      if (open && i < 0) {
+        stack.push(el.id);
+        try { history.pushState({ ov: el.id }, ''); } catch (err) { /* abaikan */ }
+      } else if (!open && i > -1) {
+        var wasTop = (i === stack.length - 1);
+        stack.splice(i, 1);
+        if (skip > 0) { skip--; return; }       // ditutup oleh tombol back
+        if (wasTop) { ignorePop++; history.back(); }   // ditutup lewat tombol di layar
+      }
+    });
+  });
+  [].forEach.call(document.querySelectorAll('.modal-overlay'), function(el){ obs.observe(el, { attributes: true, attributeFilter: ['class'] }); });
+  window.addEventListener('popstate', function(){
+    if (ignorePop > 0) { ignorePop--; return; }
+    if (!stack.length) return;
+    var el = document.getElementById(stack[stack.length - 1]);
+    skip++; if (el) el.classList.remove('open'); else { skip--; stack.pop(); }
   });
 })();
 </script>

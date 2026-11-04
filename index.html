@@ -527,10 +527,10 @@
     @media(prefers-reduced-motion:reduce){.hd-star,.hd-moon,.hd-tw,.hd-lamp,.hd-lamp .glow,.hd-mosque .win,.hero-bismillah,.hero-in>div:first-child>*,.hero-card{animation:none!important;}.hd-tw{opacity:.7;}}
 
     /* ===== BANNER: palet baru (zamrud-teal + emas fajar) & anak sekolah ===== */
-    :root{--h1:#0A2F4F;--h2:#0E5C6B;--h3:#14806F;}
-    .hero{background:radial-gradient(circle at 76% 44%,rgba(255,214,120,.34),transparent 42%),radial-gradient(circle at 6% 92%,rgba(60,210,170,.26),transparent 46%),linear-gradient(155deg,var(--h1) 0%,var(--h2) 55%,var(--h3) 100%);}
+    :root{--h1:#0B2A6B;--h2:#1346A8;--h3:#1F6FD1;}
+    .hero{background:radial-gradient(circle at 76% 44%,rgba(255,214,120,.34),transparent 42%),radial-gradient(circle at 6% 92%,rgba(110,170,255,.30),transparent 46%),linear-gradient(155deg,var(--h1) 0%,var(--h2) 55%,var(--h3) 100%);}
     .hero::before{opacity:.35;}
-    .hero-sub{color:#DDF3EE;}
+    .hero-sub{color:#DCE8FF;}
     .hero-eyebrow{background:rgba(255,255,255,.12);}
     .hd-lamp.l1{right:2%;} .hd-lamp.l2{right:auto;left:2%;}
     @media(max-width:1100px){.hd-lamp.l2{display:none;}}
@@ -555,6 +555,91 @@
     @media(max-width:900px){.hero-kids svg{max-width:300px;}}
     @media(max-width:640px){.hero-kids svg{max-width:270px;}}
     @media(prefers-reduced-motion:reduce){.hero-kids,.hk-bob,.hk-wave,.hk-eye,.hk-book,.hk-sun,.hk-sp,.hk-bird,.hk-say{animation:none!important;}}
+  
+    /* ===== PORTAL ADMIN TERINTEGRASI (role admin & guru) ===== */
+    body.in-admin{background:#F3F4FA;}
+    body.in-admin #publicRoot{display:none;}
+    body.in-admin #adminRoot{display:block;}
+    #loginOverlay{background:linear-gradient(155deg,#0B2A6B 0%,#1346A8 55%,#1F6FD1 100%);}
+    .login-back{display:block;text-align:center;margin-top:18px;font-size:14px;color:var(--navy);font-weight:600;text-decoration:none;}
+    .login-back:hover{text-decoration:underline;}
+    a.a-logout{display:block;text-decoration:none;}
+    .a-sidebar{overflow-y:auto;padding-bottom:120px;}
+    .a-me{background:rgba(255,255,255,.08);border-radius:10px;padding:10px 12px;margin:-10px 0 20px;font-size:13px;color:#fff;}
+    .a-me b{display:block;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    .a-role{display:inline-block;margin-top:4px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 9px;border-radius:99px;background:var(--gold);color:var(--navy-deep);}
+    @media(max-width:860px){.a-sidebar{padding-bottom:14px;}.a-me{margin:0 0 12px;}}
+    .a-main{max-width:1100px;}
+    .a-textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;font-size:16px;font-family:inherit;resize:vertical;min-height:90px;}
+    .a-hint{font-size:13px;color:var(--ink-soft);margin:4px 0 0;}
+    .btn-danger{background:#fff;border:1.3px solid #f1c4c4;color:var(--err);}
+    .btn-danger:hover{background:#FDEAEA;}
+    .a-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+
+    /* agenda */
+    .ag-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-bottom:14px;}
+    .ag-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px;}
+    .ag-head h3{font-size:18px;margin:0 0 4px;}
+    .ag-date{font-size:14px;color:var(--ink-soft);}
+    .ag-st{flex:none;font-size:12px;font-weight:700;padding:4px 12px;border-radius:99px;}
+    .ag-Akan{background:#EAF0FF;color:var(--navy);}
+    .ag-Berlangsung{background:#FFF3DE;color:#9A6B0F;}
+    .ag-Selesai{background:#E4F5EE;color:var(--teal);}
+    .ag-lap{margin-top:14px;border-top:1px dashed var(--line);padding-top:14px;}
+    .lap-item{background:#FAFAFD;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px;}
+    .lap-top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:6px;}
+    .lap-top b{font-size:15px;}
+    .lap-meta{font-size:13px;color:var(--ink-soft);}
+    .lap-ket{font-size:14.5px;white-space:pre-wrap;word-break:break-word;margin:6px 0 10px;}
+    .lap-photos{display:flex;gap:8px;flex-wrap:wrap;}
+    .lap-ph{width:92px;height:92px;border-radius:10px;border:1px solid var(--line);background:#EEF0F8;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--ink-soft);overflow:hidden;}
+    .lap-ph img{width:100%;height:100%;object-fit:cover;cursor:zoom-in;}
+    .ph-prev{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+    .ph-prev div{position:relative;width:78px;height:78px;border-radius:10px;overflow:hidden;border:1px solid var(--line);}
+    .ph-prev img{width:100%;height:100%;object-fit:cover;}
+    .ph-prev button{position:absolute;top:2px;right:2px;width:22px;height:22px;border:none;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;cursor:pointer;line-height:1;}
+    #lightbox{z-index:200;cursor:zoom-out;}
+    #lightbox img{max-width:96vw;max-height:92vh;border-radius:12px;}
+
+    /* rekap */
+    .rk-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px;}
+    .rk-stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;}
+    .rk-stat small{display:block;font-size:13px;color:var(--ink-soft);margin-bottom:4px;}
+    .rk-stat b{font-family:'Bricolage Grotesque',sans-serif;font-size:30px;color:var(--navy);line-height:1.1;}
+    .rk-donuts{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+    .rk-dn{text-align:center;}
+    .rk-dn svg{width:100%;max-width:150px;height:auto;}
+    .rk-dn b{display:block;font-size:15px;margin-top:4px;}
+    .rk-dn small{display:block;font-size:13px;color:var(--ink-soft);}
+    .rk-note{background:#FFF3DE;color:#7a5200;border-radius:10px;padding:10px 14px;font-size:14px;margin:0 0 14px;}
+    .rk-two{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+    .rk-hb{display:grid;grid-template-columns:120px 1fr 90px;gap:10px;align-items:center;margin-bottom:10px;font-size:14px;}
+    .rk-hb b{font-size:13px;text-align:right;}
+    .rk-tr{height:12px;background:#EEF0F8;border-radius:99px;overflow:hidden;}
+    .rk-tr i{display:block;height:100%;border-radius:99px;}
+    .rk-trend{display:flex;align-items:stretch;gap:6px;height:190px;}
+    .rk-col{flex:1;display:flex;flex-direction:column;align-items:center;min-width:0;}
+    .rk-col b{font-size:12px;height:18px;}
+    .rk-bw{flex:1;width:100%;display:flex;align-items:flex-end;justify-content:center;}
+    .rk-bw i{display:block;width:100%;max-width:26px;background:var(--gold);border-radius:6px 6px 0 0;min-height:2px;}
+    .rk-col small{font-size:11px;color:var(--ink-soft);margin-top:4px;}
+    .rk-target{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+    @media(max-width:860px){.rk-stats,.rk-donuts{grid-template-columns:repeat(2,1fr);}.rk-two{grid-template-columns:1fr;}}
+    @media(max-width:560px){.rk-target{grid-template-columns:1fr;}.rk-hb{grid-template-columns:90px 1fr 80px;}}
+
+    .nav-links a.nav-admin{border:1.5px solid var(--navy);color:var(--navy);margin-left:6px;display:inline-flex;align-items:center;gap:6px;}
+    .nav-links a.nav-admin:hover{background:var(--navy);color:#fff;}
+    @media(max-width:900px){.nav-links a.nav-admin{margin:8px 0 0;justify-content:center;}}
+
+    /* ===== PANTAU SPMB ===== */
+    #pantau{background:var(--bg);padding-top:20px;padding-bottom:30px;}
+    .pt-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:30px 26px 24px;box-shadow:0 18px 44px rgba(20,28,92,.08);max-width:1040px;margin:0 auto;}
+    .pt-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-top:24px;padding-top:18px;border-top:1px dashed var(--line);}
+    .pt-foot span{font-size:14.5px;color:var(--ink-soft);}
+    .pt-search{border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;font-size:15px;flex:1;min-width:180px;}
+    #pantauOverlay .modal{max-width:940px;}
+    #pantauOverlay .a-table-wrap{max-height:55vh;overflow:auto;}
+    @media(max-width:640px){.pt-card{padding:22px 14px 18px;border-radius:20px;}.pt-foot{flex-direction:column;align-items:stretch;text-align:center;}.pt-foot .btn{justify-content:center;}}
   </style>
 </head>
 <body>
@@ -575,10 +660,11 @@
       <button type="button" class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false">☰</button>
       <nav class="nav-links" id="navLinks">
         <a href="#" data-scroll="top">Beranda</a>
+        <a href="#" data-scroll="pantau">Pantau SPMB</a>
         <a href="#" data-scroll="cara-daftar">Cara Daftar</a>
         <a href="#" data-scroll="menu">Jalur Pendaftaran</a>
         <a href="#" data-scroll="kontak">Kontak</a>
-        <a class="nav-site" data-site href="https://www.smpitalmubarok.sch.id/" target="_blank" rel="noopener">🌐 <span class="long">Kunjungi Website SMP Islam Terpadu Al Mubarok</span><span class="short">Kunjungi Website</span></a>
+        <a class="nav-admin" href="#admin" data-admin-link>🔐 Portal Admin</a>
       </nav>
     </div>
   </header>
@@ -596,18 +682,32 @@
           <a class="btn btn-outline" data-site href="https://www.smpitalmubarok.sch.id/" target="_blank" rel="noopener">🌐 Kunjungi Website Sekolah</a>
         </div>
       </div>
-      <div class="hero-kids"><svg viewBox="0 0 360 392" role="img" aria-label="Ilustrasi siswa dan siswi berpakaian muslim di depan masjid"><defs><clipPath id="hkc"><path d="M20 380V170Q20 24 180 24Q340 24 340 170V380Z"/></clipPath><linearGradient id="hkSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FDAD2"/><stop offset=".55" stop-color="#FFF1C9"/><stop offset="1" stop-color="#FFD98A"/></linearGradient><radialGradient id="hkSun"><stop offset="0" stop-color="#FFE9A8"/><stop offset="1" stop-color="#FFE9A8" stop-opacity="0"/></radialGradient><mask id="hkm"><rect width="60" height="60" fill="#fff"/><circle cx="32" cy="15" r="17" fill="#000"/></mask></defs>
+      <div class="hero-kids"><svg viewBox="0 0 360 392" role="img" aria-label="Ilustrasi siswa dan siswi berpakaian muslim di depan masjid"><defs><clipPath id="hkc"><path d="M20 380V170Q20 24 180 24Q340 24 340 170V380Z"/></clipPath><linearGradient id="hkSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8EC5F2"/><stop offset=".55" stop-color="#FFF1C9"/><stop offset="1" stop-color="#FFD98A"/></linearGradient><radialGradient id="hkSun"><stop offset="0" stop-color="#FFE9A8"/><stop offset="1" stop-color="#FFE9A8" stop-opacity="0"/></radialGradient><mask id="hkm"><rect width="60" height="60" fill="#fff"/><circle cx="32" cy="15" r="17" fill="#000"/></mask></defs>
 <path d="M10 388V170Q10 12 180 12Q350 12 350 170V388" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.5"/>
 <g clip-path="url(#hkc)"><rect width="360" height="392" fill="url(#hkSky)"/><circle class="hk-sun" cx="180" cy="160" r="95" fill="url(#hkSun)"/>
 <g transform="translate(262,44)"><circle cx="22" cy="24" r="20" fill="#F3C25B" mask="url(#hkm)"/></g><path class="hk-sp" style="animation-delay:0s" transform="translate(306,62) scale(1.3)" d="M0-6L1.6-1.6 6 0 1.6 1.6 0 6-1.6 1.6-6 0-1.6-1.6Z" fill="#fff"/><path class="hk-sp" style="animation-delay:1s" transform="translate(60,80) scale(1)" d="M0-6L1.6-1.6 6 0 1.6 1.6 0 6-1.6 1.6-6 0-1.6-1.6Z" fill="#fff"/><path class="hk-sp" style="animation-delay:2s" transform="translate(110,52) scale(1.1)" d="M0-6L1.6-1.6 6 0 1.6 1.6 0 6-1.6 1.6-6 0-1.6-1.6Z" fill="#E4A73B"/><path class="hk-sp" style="animation-delay:0.6s" transform="translate(318,150) scale(0.9)" d="M0-6L1.6-1.6 6 0 1.6 1.6 0 6-1.6 1.6-6 0-1.6-1.6Z" fill="#fff"/>
 <g class="hk-bird"><path d="M0 0q5-6 10 0q5-6 10 0M26 14q4-5 8 0q4-5 8 0" stroke="#2a5d6b" stroke-width="1.8" fill="none" stroke-linecap="round" transform="translate(0,96)"/></g>
-<g fill="#1C6E6A" opacity=".9"><rect x="120" y="215" width="120" height="115"/><path d="M128 215Q128 150 180 150Q232 150 232 215Z"/><rect x="179" y="128" width="2" height="24"/><circle cx="180" cy="126" r="4"/><rect x="88" y="172" width="14" height="158"/><path d="M85 172H105L95 148Z"/><rect x="258" y="172" width="14" height="158"/><path d="M255 172H275L265 148Z"/></g>
+<g fill="#1D4F9C" opacity=".9"><rect x="120" y="215" width="120" height="115"/><path d="M128 215Q128 150 180 150Q232 150 232 215Z"/><rect x="179" y="128" width="2" height="24"/><circle cx="180" cy="126" r="4"/><rect x="88" y="172" width="14" height="158"/><path d="M85 172H105L95 148Z"/><rect x="258" y="172" width="14" height="158"/><path d="M255 172H275L265 148Z"/></g>
 <path d="M0 306Q90 276 180 300T360 296V392H0Z" fill="#4FB38A"/><path d="M0 322Q180 306 360 322V392H0Z" fill="#2E8B6A"/>
 <g transform="translate(98,330) scale(1)"><g class="hk-bob" style="animation-delay:0s"><rect x="-28" y="-98" width="16" height="38" rx="6" fill="#F08A24"/><rect x="-12" y="-50" width="11" height="48" rx="4" fill="#2B4FA3"/><rect x="1" y="-50" width="11" height="48" rx="4" fill="#2B4FA3"/><ellipse cx="-7" cy="0" rx="10" ry="5" fill="#222"/><ellipse cx="7" cy="0" rx="10" ry="5" fill="#222"/><rect x="-19" y="-104" width="38" height="56" rx="11" fill="#fff" stroke="#D5DCE8" stroke-width="1"/><circle cx="9" cy="-86" r="3" fill="#E4A73B"/><rect x="-31" y="-100" width="10" height="40" rx="5" fill="#fff" stroke="#D5DCE8" stroke-width="1"/><circle cx="-26" cy="-58" r="5.5" fill="#F1C6A0"/><rect x="21" y="-100" width="10" height="40" rx="5" fill="#fff" stroke="#D5DCE8" stroke-width="1"/><circle cx="26" cy="-58" r="5.5" fill="#F1C6A0"/><circle cy="-122" r="20" fill="#F1C6A0"/><rect x="-18" y="-147" width="36" height="19" rx="5" fill="#1c1c1c"/><rect x="-18" y="-132" width="36" height="3.5" fill="#E4A73B"/><ellipse class="hk-eye" cx="-6.5" cy="-120" rx="2.2" ry="2.8" fill="#222"/><ellipse class="hk-eye" cx="6.5" cy="-120" rx="2.2" ry="2.8" fill="#222"/><circle cx="-11" cy="-114" r="3.2" fill="#F29A8E" opacity=".45"/><circle cx="11" cy="-114" r="3.2" fill="#F29A8E" opacity=".45"/><path d="M-5 -112Q0 -107 5 -112" stroke="#7a3b1d" fill="none" stroke-width="2" stroke-linecap="round"/></g></g><g transform="translate(266,330) scale(1)"><g class="hk-bob" style="animation-delay:0.5s"><path d="M-20 -54H20L27 -4H-27Z" fill="#2B4FA3"/><ellipse cx="-9" cy="0" rx="10" ry="5" fill="#222"/><ellipse cx="9" cy="0" rx="10" ry="5" fill="#222"/><rect x="-19" y="-104" width="38" height="56" rx="11" fill="#fff" stroke="#D5DCE8" stroke-width="1"/><rect x="-31" y="-100" width="10" height="40" rx="5" fill="#fff" stroke="#D5DCE8" stroke-width="1"/><circle cx="-26" cy="-58" r="5.5" fill="#F1C6A0"/><rect x="21" y="-100" width="10" height="40" rx="5" fill="#fff" stroke="#D5DCE8" stroke-width="1"/><circle cx="26" cy="-58" r="5.5" fill="#F1C6A0"/><path d="M-28 -112Q0 -140 28 -112L25 -68Q0 -60 -25 -68Z" fill="#fff" stroke="#D5DCE8" stroke-width="1"/><ellipse cy="-120" rx="25" ry="27" fill="#fff" stroke="#D5DCE8" stroke-width="1"/><circle cy="-117" r="16.5" fill="#E8B88C"/><ellipse class="hk-eye" cx="-6.5" cy="-119" rx="2.2" ry="2.8" fill="#222"/><ellipse class="hk-eye" cx="6.5" cy="-119" rx="2.2" ry="2.8" fill="#222"/><circle cx="-11" cy="-113" r="3.2" fill="#F29A8E" opacity=".45"/><circle cx="11" cy="-113" r="3.2" fill="#F29A8E" opacity=".45"/><path d="M-5 -111Q0 -106 5 -111" stroke="#7a3b1d" fill="none" stroke-width="2" stroke-linecap="round"/><g class="hk-book"><rect x="-15" y="-86" width="30" height="22" rx="2" fill="#1F8A6B"/><rect x="-15" y="-86" width="5" height="22" fill="#146a52"/><path d="M-4 -77h15M-4 -71h15" stroke="#E4A73B" stroke-width="1.7"/><circle cx="-15" cy="-66" r="5" fill="#E8B88C"/><circle cx="15" cy="-66" r="5" fill="#E8B88C"/></g></g></g><g transform="translate(182,330) scale(1.12)"><g class="hk-bob" style="animation-delay:0.25s"><path d="M-20 -54H20L27 -4H-27Z" fill="#2B4FA3"/><ellipse cx="-9" cy="0" rx="10" ry="5" fill="#222"/><ellipse cx="9" cy="0" rx="10" ry="5" fill="#222"/><rect x="-19" y="-104" width="38" height="56" rx="11" fill="#fff" stroke="#D5DCE8" stroke-width="1"/><rect x="-31" y="-100" width="10" height="40" rx="5" fill="#fff" stroke="#D5DCE8" stroke-width="1"/><circle cx="-26" cy="-58" r="5.5" fill="#F1C6A0"/><g transform="rotate(-150 24 -98)"><g class="hk-wave"><rect x="19" y="-98" width="10" height="40" rx="5" fill="#fff" stroke="#D5DCE8" stroke-width="1"/><circle cx="24" cy="-57" r="5.5" fill="#F1C6A0"/></g></g><path d="M-28 -112Q0 -140 28 -112L25 -68Q0 -60 -25 -68Z" fill="#fff" stroke="#D5DCE8" stroke-width="1"/><ellipse cy="-120" rx="25" ry="27" fill="#fff" stroke="#D5DCE8" stroke-width="1"/><circle cy="-117" r="16.5" fill="#F1C6A0"/><ellipse class="hk-eye" cx="-6.5" cy="-119" rx="2.2" ry="2.8" fill="#222"/><ellipse class="hk-eye" cx="6.5" cy="-119" rx="2.2" ry="2.8" fill="#222"/><circle cx="-11" cy="-113" r="3.2" fill="#F29A8E" opacity=".45"/><circle cx="11" cy="-113" r="3.2" fill="#F29A8E" opacity=".45"/><path d="M-5 -111Q0 -106 5 -111" stroke="#7a3b1d" fill="none" stroke-width="2" stroke-linecap="round"/></g></g>
-<g class="hk-say"><rect x="198" y="108" width="126" height="30" rx="15" fill="#fff"/><path d="M214 136l-4 16 18-14z" fill="#fff"/><text x="261" y="128" text-anchor="middle" font-family="Figtree,sans-serif" font-size="12" font-weight="700" fill="#14806F">Assalamu'alaikum!</text></g>
+<g class="hk-say"><rect x="198" y="108" width="126" height="30" rx="15" fill="#fff"/><path d="M214 136l-4 16 18-14z" fill="#fff"/><text x="261" y="128" text-anchor="middle" font-family="Figtree,sans-serif" font-size="12" font-weight="700" fill="#1E4FB5">Assalamu'alaikum!</text></g>
 </g><path d="M20 380V170Q20 24 180 24Q340 24 340 170V380Z" fill="none" stroke="#E4A73B" stroke-width="4"/></svg></div>
     </div>
     <div class="hero-wave"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,80 480,0 720,30 C960,60 1200,70 1440,20 L1440,70 L0,70 Z"/></svg></div>
+  </section>
+
+  <section class="sec" id="pantau">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="kicker">STATISTIK PENDAFTAR</span>
+        <h2>Pantau SPMB</h2>
+        <p>Perkembangan jumlah pendaftar terhadap target penerimaan.</p>
+      </div>
+      <div class="pt-card">
+        <div class="rk-donuts" id="pantauBody"><div class="a-empty-state" style="grid-column:1/-1">Memuat data…</div></div>
+        <div class="pt-foot"><span id="pantauInfo"></span><button type="button" class="btn btn-gold" id="pantauDetailBtn">Lihat Detil</button></div>
+      </div>
+    </div>
   </section>
 
   <section class="sec" id="cara-daftar">
@@ -669,10 +769,12 @@
         </a>
         <div class="foot-links">
           <a href="#" data-scroll="top">Beranda</a>
+        <a href="#" data-scroll="pantau">Pantau SPMB</a>
           <a href="#" data-scroll="cara-daftar">Cara Daftar</a>
           <a href="#" data-scroll="menu">Jalur Pendaftaran</a>
           <a href="#" data-scroll="kontak">Kontak</a>
           <a data-site href="https://www.smpitalmubarok.sch.id/" target="_blank" rel="noopener">Website Sekolah ↗</a>
+          <a href="#admin" data-admin-link>Portal Admin</a>
         </div>
       </div>
       <div class="foot-copy" id="footerNama">Nama Sekolah</div>
@@ -680,6 +782,22 @@
   </footer>
 
   </div><!-- /#landing -->
+
+  <div class="modal-overlay" id="pantauOverlay">
+    <div class="modal">
+      <button class="modal-close" id="pantauClose" aria-label="Tutup">✕</button>
+      <h3>Daftar Pendaftar</h3>
+      <p class="modal-sub" id="pantauSub"></p>
+      <div class="a-toolbar">
+        <select id="pantauJenis"><option value="all">Semua Jalur</option><option value="siswa_baru">Siswa Baru</option><option value="siswa_mutasi">Siswa Mutasi</option><option value="pondok_pesantren">Pondok Pesantren</option></select>
+        <input type="search" class="pt-search" id="pantauCari" placeholder="Cari nama, alamat, atau asal sekolah">
+      </div>
+      <div class="a-table-wrap">
+        <table><thead><tr><th>No</th><th>Nama</th><th>Jalur</th><th>Alamat</th><th>Asal Sekolah</th></tr></thead><tbody id="pantauRows"></tbody></table>
+        <div class="a-empty-state" id="pantauEmpty" style="display:none;"></div>
+      </div>
+    </div>
+  </div>
 
   <a href="#" class="wa-float" id="waFloat" target="_blank" rel="noopener" title="Chat WhatsApp">
     <svg viewBox="0 0 32 32" fill="white"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-2c1.8 1 3.9 1.5 6.3 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.6 1.2 1.2-4.5-.3-.5C5.5 18 5 16.5 5 15c0-6 5-11 11-11s11 5 11 11-5 10.8-11 10.8zm6-8.2c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.8-1-2.4-.3-.6-.5-.5-.7-.6h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.8.7.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
@@ -703,7 +821,7 @@
           <div id="fileList"></div>
         </div>
         <div class="hp-field" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-        <label class="consent"><input type="checkbox" id="consent" required> <span>Saya menyatakan data yang diisi benar dan menyetujui penggunaan data pribadi (termasuk NISN, NIK, dan dokumen) hanya untuk keperluan seleksi penerimaan peserta didik baru.</span></label>
+        <label class="consent"><input type="checkbox" id="consent" required> <span>Saya menyatakan data yang diisi benar dan menyetujui penggunaan data pribadi (termasuk NISN, NIK, dan dokumen) hanya untuk keperluan seleksi penerimaan peserta didik baru. Nama (disingkat), desa/kecamatan, dan asal sekolah dapat ditampilkan pada halaman Pantau SPMB.</span></label>
         <button type="submit" class="btn fp-submit" id="fpSubmit">Kirim Pendaftaran</button>
         <div class="form-msg" id="fpMsg"></div>
       </form>
@@ -711,6 +829,224 @@
   </div>
 
 </div>
+
+<!-- ================================================================
+     PORTAL ADMIN / GURU  (dibuka lewat #admin)
+================================================================= -->
+<div id="adminRoot">
+
+  <div class="modal-overlay" id="loginOverlay">
+    <div class="admin-login-box">
+      <h3>Portal SPMB</h3>
+      <p class="modal-sub">Masuk sebagai admin atau guru.</p>
+      <form id="loginForm">
+        <div class="field"><label for="loginUser">Username</label><input type="text" id="loginUser" required autocomplete="username"></div>
+        <div class="field"><label for="loginPass">Password</label><input type="password" id="loginPass" required autocomplete="current-password"></div>
+        <button class="btn btn-submit" type="submit" id="loginBtn">Masuk</button>
+        <div class="login-msg" id="loginMsg"></div>
+      </form>
+      <a class="login-back" href="#" id="loginBack">← Kembali ke halaman pendaftaran</a>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="detailOverlay">
+    <div class="modal" style="max-width:720px;">
+      <button class="modal-close" id="detailClose" aria-label="Tutup">✕</button>
+      <h3 id="dtName"></h3>
+      <p class="modal-sub" id="dtSub"></p>
+      <div id="dtBody"></div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="agendaOverlay">
+    <div class="modal">
+      <button class="modal-close" data-close="agendaOverlay" aria-label="Tutup">✕</button>
+      <h3 id="agTitle">Tambah Agenda</h3>
+      <p class="modal-sub">Kegiatan dalam rangkaian SPMB.</p>
+      <form id="agendaForm">
+        <input type="hidden" id="agId">
+        <div class="field"><label for="agNama">Nama Kegiatan *</label><input type="text" id="agNama" maxlength="150" required></div>
+        <div class="field"><label for="agMulai">Tanggal Mulai *</label><input type="date" id="agMulai" required></div>
+        <div class="field"><label for="agSelesai">Tanggal Selesai *</label><input type="date" id="agSelesai" required></div>
+        <button class="btn btn-submit" type="submit">Simpan Agenda</button>
+        <div class="form-msg err" id="agMsg"></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="laporanOverlay">
+    <div class="modal">
+      <button class="modal-close" data-close="laporanOverlay" aria-label="Tutup">✕</button>
+      <h3>Tambah Laporan Pelaksanaan</h3>
+      <p class="modal-sub" id="lapAgendaName"></p>
+      <form id="laporanForm">
+        <input type="hidden" id="lapAgenda">
+        <div class="field"><label for="lapPelaksana">Nama Pelaksana *</label><input type="text" id="lapPelaksana" maxlength="150" required></div>
+        <div class="field"><label for="lapTanggal">Tanggal Pelaksanaan *</label><input type="date" id="lapTanggal" required></div>
+        <div class="field"><label for="lapKet">Keterangan Laporan *</label><textarea class="a-textarea" id="lapKet" maxlength="2000" required placeholder="Ceritakan pelaksanaan kegiatan, jumlah peserta, kendala, dan tindak lanjut."></textarea></div>
+        <div class="field"><label for="lapFoto">Dokumentasi Foto (maks. 8 foto)</label>
+          <input type="file" id="lapFoto" accept="image/jpeg,image/png,image/webp" multiple>
+          <div class="ph-prev" id="lapPrev"></div>
+        </div>
+        <button class="btn btn-submit" type="submit" id="lapSubmit">Simpan Laporan</button>
+        <div class="form-msg err" id="lapMsg"></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="userOverlay">
+    <div class="modal">
+      <button class="modal-close" data-close="userOverlay" aria-label="Tutup">✕</button>
+      <h3 id="uTitle">Tambah Pengguna</h3>
+      <p class="modal-sub">Admin: akses penuh. Guru: lihat pendaftar, agenda, rekap, dan menambah laporan.</p>
+      <form id="userForm">
+        <input type="hidden" id="uNew">
+        <div class="field"><label for="uUsername">Username *</label><input type="text" id="uUsername" maxlength="30" required autocomplete="off"></div>
+        <div class="field"><label for="uNama">Nama Lengkap *</label><input type="text" id="uNama" maxlength="100" required></div>
+        <div class="field"><label for="uRole">Role *</label><select id="uRole"><option value="guru">Guru</option><option value="admin">Admin</option></select></div>
+        <div class="field"><label for="uPass" id="uPassLbl">Password *</label><input type="password" id="uPass" autocomplete="new-password"><p class="a-hint" id="uPassHint">Minimal 8 karakter.</p></div>
+        <button class="btn btn-submit" type="submit">Simpan</button>
+        <div class="form-msg err" id="uMsg"></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="lightbox"><img id="lbImg" alt="Dokumentasi"></div>
+
+  <div id="adminApp">
+    <div class="a-sidebar">
+      <h2>Portal SPMB</h2>
+      <div class="sub">Panel pengelola</div>
+      <div class="a-me"><b id="meName"></b><span class="a-role" id="meRole"></span></div>
+      <div class="a-nav-item" data-panel="rekap" data-perm="rekap.read">📊 Rekap Siswa</div>
+      <div class="a-nav-item" data-panel="pendaftar" data-perm="pendaftar.read">👥 Data Pendaftar</div>
+      <div class="a-nav-item" data-panel="agenda" data-perm="agenda.read">📅 Agenda SPMB</div>
+      <div class="a-nav-item" data-panel="tampilan" data-perm="settings">🎨 Tampilan &amp; Banner</div>
+      <div class="a-nav-item" data-panel="alur" data-perm="settings">🧭 Alur Pendaftaran</div>
+      <div class="a-nav-item" data-panel="menu" data-perm="settings">🗂️ Menu &amp; Persyaratan</div>
+      <div class="a-nav-item" data-panel="pengguna" data-perm="users.manage">🧑‍🏫 Pengguna &amp; Role</div>
+      <div class="a-nav-item" data-panel="akun">🔐 Akun Saya</div>
+      <div class="a-sidebar-bottom">
+        <a class="a-logout" id="backToPublic" href="#">👁 Lihat Halaman Publik</a>
+        <div class="a-logout" id="logoutBtn">↩ Keluar</div>
+      </div>
+    </div>
+
+    <div class="a-main">
+      <div class="a-warn" id="pwWarn">⚠️ Anda masih memakai password bawaan. Segera ganti di menu <b>Akun Saya</b>.</div>
+
+      <!-- REKAP -->
+      <div class="a-panel" id="panel-rekap">
+        <div class="a-panel-head"><h1>Rekap Siswa</h1><p>Rekap pendaftar beserta persentase capaian terhadap target.</p></div>
+        <div class="a-toolbar"><button class="btn btn-ghost btn-sm" id="refreshRekap">🔄 Muat Ulang</button></div>
+        <div id="rekapBody"><div class="a-empty-state">Memuat…</div></div>
+      </div>
+
+      <!-- PENDAFTAR -->
+      <div class="a-panel" id="panel-pendaftar">
+        <div class="a-panel-head"><h1>Data Pendaftar</h1><p>Daftar calon peserta didik yang sudah mengisi formulir.</p></div>
+        <div class="a-toolbar">
+          <select id="filterJenis">
+            <option value="all">Semua Jalur</option>
+            <option value="siswa_baru">Siswa Baru</option>
+            <option value="siswa_mutasi">Siswa Mutasi</option>
+            <option value="pondok_pesantren">Pondok Pesantren</option>
+          </select>
+          <button class="btn btn-ghost btn-sm" id="refreshPendaftar">🔄 Muat Ulang</button>
+          <button class="btn btn-ghost btn-sm" id="openSheetBtn">📄 Buka Spreadsheet</button>
+        </div>
+        <div class="a-table-wrap">
+          <table>
+            <thead><tr><th>ID</th><th>Waktu</th><th>Jalur</th><th>Nama</th><th>NISN</th><th>No. HP</th><th>Status</th><th>Berkas</th><th>Aksi</th></tr></thead>
+            <tbody id="pendaftarBody"></tbody>
+          </table>
+          <div class="a-empty-state" id="emptyState" style="display:none;">Belum ada pendaftar.</div>
+        </div>
+      </div>
+
+      <!-- AGENDA -->
+      <div class="a-panel" id="panel-agenda">
+        <div class="a-panel-head"><h1>Agenda SPMB</h1><p>Kegiatan SPMB, rentang pelaksanaan, dan laporan pelaksanaannya.</p></div>
+        <div class="a-toolbar">
+          <button class="btn btn-primary btn-sm" id="addAgendaBtn">+ Tambah Agenda</button>
+          <button class="btn btn-ghost btn-sm" id="refreshAgenda">🔄 Muat Ulang</button>
+        </div>
+        <div id="agendaList"></div>
+      </div>
+
+      <!-- TAMPILAN -->
+      <div class="a-panel" id="panel-tampilan">
+        <div class="a-panel-head"><h1>Tampilan &amp; Banner</h1><p>Atur warna, nama sekolah, teks banner, dan kontak WhatsApp.</p></div>
+        <div class="a-card"><h3>Warna</h3>
+          <div class="a-row2">
+            <div class="field"><label>Warna Header</label><div class="color-input"><input type="color" id="s_headerColor"><input type="text" id="s_headerColor_hex"></div></div>
+            <div class="field"><label>Warna Aksen (tombol)</label><div class="color-input"><input type="color" id="s_accentColor"><input type="text" id="s_accentColor_hex"></div></div>
+          </div>
+        </div>
+        <div class="a-card"><h3>Identitas &amp; Banner</h3>
+          <div class="field"><label>Nama Sekolah</label><input type="text" id="s_namaSekolah"></div>
+          <div class="field"><label>Judul Banner</label><input type="text" id="s_bannerTitle"></div>
+          <div class="field"><label>Subjudul Banner</label><textarea id="s_bannerSubtitle"></textarea></div>
+        </div>
+        <div class="a-card"><h3>Logo &amp; Website Sekolah</h3>
+          <div class="field"><label>Logo (ukuran ideal 470 × 100 px, PNG/WEBP transparan, maks. 1 MB)</label>
+            <div class="logo-prev" id="logoPrevBox"><img id="logoPrev" alt="Pratinjau logo"></div>
+            <input type="file" id="logoFile" accept="image/png,image/jpeg,image/webp">
+            <div style="margin-top:10px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;"><button type="button" class="btn btn-ghost btn-sm" id="logoUpload">Unggah Logo</button><span class="a-save-msg" id="msgLogo"></span></div>
+          </div>
+          <div class="field"><label>atau tempel alamat (URL) gambar logo</label><input type="text" id="s_logoUrl" placeholder="https://..."></div>
+          <div class="field"><label>Alamat Website Sekolah</label><input type="text" id="s_websiteUrl" placeholder="https://www.smpitalmubarok.sch.id/"></div>
+        </div>
+        <div class="a-card"><h3>Kontak WhatsApp</h3>
+          <div class="a-row2">
+            <div class="field"><label>Nomor WA (format 62...)</label><input type="text" id="s_waNumber"></div>
+            <div class="field"><label>Pesan Otomatis</label><input type="text" id="s_waMessage"></div>
+          </div>
+        </div>
+        <div class="a-save-bar"><button class="btn btn-primary" id="saveTampilan">Simpan Perubahan</button><span class="a-save-msg" id="msgTampilan"></span></div>
+      </div>
+
+      <!-- ALUR -->
+      <div class="a-panel" id="panel-alur">
+        <div class="a-panel-head"><h1>Alur Pendaftaran</h1><p>Langkah-langkah yang tampil di halaman utama.</p></div>
+        <div class="a-card"><div id="alurList"></div><button class="a-add-btn" id="addAlur">+ Tambah Langkah</button></div>
+        <div class="a-save-bar"><button class="btn btn-primary" id="saveAlur">Simpan Alur</button><span class="a-save-msg" id="msgAlur"></span></div>
+      </div>
+
+      <!-- MENU -->
+      <div class="a-panel" id="panel-menu">
+        <div class="a-panel-head"><h1>Menu &amp; Persyaratan</h1><p>Kelola 3 jalur pendaftaran: ikon, judul, warna, dan dokumen persyaratan.</p></div>
+        <div id="menuList"></div>
+        <div class="a-save-bar"><button class="btn btn-primary" id="saveMenu">Simpan Menu</button><span class="a-save-msg" id="msgMenu"></span></div>
+      </div>
+
+      <!-- PENGGUNA -->
+      <div class="a-panel" id="panel-pengguna">
+        <div class="a-panel-head"><h1>Pengguna &amp; Role</h1><p>Kelola akun admin dan guru.</p></div>
+        <div class="a-toolbar"><button class="btn btn-primary btn-sm" id="addUserBtn">+ Tambah Pengguna</button></div>
+        <div class="a-table-wrap">
+          <table>
+            <thead><tr><th>Username</th><th>Nama</th><th>Role</th><th>Dibuat</th><th>Aksi</th></tr></thead>
+            <tbody id="userBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- AKUN SAYA -->
+      <div class="a-panel" id="panel-akun">
+        <div class="a-panel-head"><h1>Akun Saya</h1><p>Ubah password login Anda.</p></div>
+        <div class="a-card" style="max-width:420px;">
+          <div class="field"><label for="pOld">Password Lama</label><input type="password" id="pOld" autocomplete="current-password"></div>
+          <div class="field"><label for="pNew">Password Baru (min. 8 karakter)</label><input type="password" id="pNew" autocomplete="new-password"></div>
+          <button class="btn btn-primary" id="savePass">Ubah Password</button>
+          <div class="a-save-msg" id="msgPass" style="margin-top:10px;"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
 <script>
   // ============================================================
@@ -1018,8 +1354,612 @@
     });
   });
 
-  api('getPublicSettings').then(renderPublic).catch(function(err){ console.error('Gagal memuat pengaturan:', err); });
+  // ============================================================
+  // PANTAU SPMB (diagram publik + daftar)
+  // ============================================================
+  const PT_DEF = [['siswa_baru','Siswa Baru','#E4A73B'],['siswa_mutasi','Siswa Mutasi','#2E8B7B'],['pondok_pesantren','Pondok Pesantren','#8B3A3A']];
+  let PT_ROWS = [];
+  function ptJalur(){
+    return PT_DEF.map(function(d){
+      const m = (MENUS || []).filter(function(x){ return x.id === d[0]; })[0];
+      const warna = m && /^#[0-9a-fA-F]{6}$/.test(m.warna || '') ? m.warna : d[2];
+      return [d[0], m && m.title ? String(m.title).replace(/^Pendaftaran\s+/i, '') : d[1], warna];
+    });
+  }
+  function ptDonut(n, target, color, title){
+    const r = 52, c = 2 * Math.PI * r, pct = target > 0 ? Math.min(100, n / target * 100) : 0;
+    const arc = pct > 0 ? '<circle cx="65" cy="65" r="' + r + '" fill="none" stroke="' + color + '" stroke-width="14" stroke-linecap="round" stroke-dasharray="' + (c * pct / 100).toFixed(1) + ' ' + c.toFixed(1) + '" transform="rotate(-90 65 65)"/>' : '';
+    const center = target > 0 ? Math.round(n / target * 100) + '%' : String(n);
+    const sub = target > 0 ? n + ' dari ' + target + ' target' : n + ' pendaftar';
+    return '<div class="rk-dn"><svg viewBox="0 0 130 130" role="img" aria-label="' + esc(title) + ': ' + esc(sub) + '"><circle cx="65" cy="65" r="' + r + '" fill="none" stroke="#E4E4EF" stroke-width="14"/>' + arc +
+      '<text x="65" y="73" text-anchor="middle" font-size="24" font-weight="800" fill="#1B1E2E" font-family="Bricolage Grotesque,sans-serif">' + center + '</text></svg><b>' + esc(title) + '</b><small>' + esc(sub) + '</small></div>';
+  }
+  function loadPantau(){
+    const sec = document.getElementById('pantau');
+    api('getPublicRekap').then(function(r){
+      const t = r.target || {}, tt = (t.siswa_baru || 0) + (t.siswa_mutasi || 0) + (t.pondok_pesantren || 0);
+      document.getElementById('pantauBody').innerHTML = ptDonut(r.total, tt, '#1E4FB5', 'Total') +
+        ptJalur().map(function(j){ return ptDonut(r.perJenis[j[0]] || 0, t[j[0]] || 0, j[2], j[1]); }).join('');
+      document.getElementById('pantauInfo').textContent = 'Total ' + r.total + ' pendaftar · diperbarui ' + r.updated;
+      document.getElementById('pantauDetailBtn').style.display = r.listEnabled ? '' : 'none';
+      sec.style.display = '';
+    }).catch(function(){ sec.style.display = 'none'; });
+  }
+  function ptName(id){ const j = PT_DEF.filter(function(d){ return d[0] === id; })[0]; return j ? j[1] : id; }
+  function renderPtRows(){
+    const jenis = document.getElementById('pantauJenis').value, q = document.getElementById('pantauCari').value.trim().toLowerCase();
+    const list = PT_ROWS.filter(function(r){
+      return (jenis === 'all' || r.jenis === jenis) && (!q || (r.nama + ' ' + r.alamat + ' ' + r.asal).toLowerCase().indexOf(q) > -1);
+    });
+    document.getElementById('pantauRows').innerHTML = list.map(function(r, i){
+      return '<tr><td>' + (i + 1) + '</td><td>' + esc(r.nama) + '</td><td>' + esc(ptName(r.jenis)) + '</td><td>' + (esc(r.alamat) || '-') + '</td><td>' + (esc(r.asal) || '-') + '</td></tr>';
+    }).join('');
+    const em = document.getElementById('pantauEmpty');
+    em.style.display = list.length ? 'none' : 'block';
+    em.textContent = PT_ROWS.length ? 'Tidak ada data yang cocok.' : 'Belum ada pendaftar.';
+  }
+  document.getElementById('pantauDetailBtn').addEventListener('click', function(){
+    const ov = document.getElementById('pantauOverlay'), em = document.getElementById('pantauEmpty');
+    ov.classList.add('open');
+    document.getElementById('pantauRows').innerHTML = ''; em.style.display = 'block'; em.textContent = 'Memuat daftar…';
+    api('getPublicDaftar').then(function(d){
+      PT_ROWS = d.rows || [];
+      document.getElementById('pantauSub').textContent = 'Total ' + d.total + ' pendaftar' + (d.shown < d.total ? ' (menampilkan ' + d.shown + ' terbaru)' : '') +
+        '. ' + (d.masked ? 'Nama disingkat dan alamat hanya sampai desa/kecamatan demi menjaga privasi.' : '');
+      renderPtRows();
+    }).catch(function(err){ em.textContent = 'Gagal memuat: ' + err.message; });
+  });
+  document.getElementById('pantauJenis').addEventListener('change', renderPtRows);
+  document.getElementById('pantauCari').addEventListener('input', renderPtRows);
+  document.getElementById('pantauClose').addEventListener('click', function(){ document.getElementById('pantauOverlay').classList.remove('open'); });
+  document.getElementById('pantauOverlay').addEventListener('click', function(e){ if (e.target === this) this.classList.remove('open'); });
 
+  api('getPublicSettings').then(function(s){ renderPublic(s); loadPantau(); }).catch(function(err){ console.error('Gagal memuat pengaturan:', err); });
+
+</script>
+
+<script>
+// ============================================================
+// PORTAL ADMIN / GURU  (memakai api() di atas; semua aksi mengirim token sesi)
+// ============================================================
+(function(){
+  'use strict';
+  var A = { token: null, me: null, perms: [], agendas: [], openAgenda: {}, rows: [], rekap: null, settingsLoaded: false };
+  var $ = function(id){ return document.getElementById(id); };
+  var BULAN = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+  var JENIS = { siswa_baru: 'Siswa Baru', siswa_mutasi: 'Siswa Mutasi', pondok_pesantren: 'Pondok Pesantren' };
+  var STATUS = ['Baru Mendaftar', 'Diverifikasi', 'Diterima', 'Ditolak'];
+  var JALUR = [['siswa_baru', 'Siswa Baru', '#E4A73B'], ['siswa_mutasi', 'Siswa Mutasi', '#2E8B7B'], ['pondok_pesantren', 'Pondok Pesantren', '#8B3A3A']];
+  var STCOLOR = { 'Baru Mendaftar': '#5B6BD6', 'Diverifikasi': '#E4A73B', 'Diterima': '#2E8B7B', 'Ditolak': '#B03A3A' };
+
+  function attr(s){ return esc(s).replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
+  function can(p){ return A.perms.indexOf(p) > -1; }
+  function keep(v){ try { if (v) sessionStorage.setItem('spmb_token', v); else sessionStorage.removeItem('spmb_token'); } catch (e) { /* abaikan */ } }
+  function stored(){ try { return sessionStorage.getItem('spmb_token'); } catch (e) { return null; } }
+  function fmtD(s){ var p = String(s || '').split('-'); return p.length === 3 ? (+p[2]) + ' ' + BULAN[(+p[1]) - 1] + ' ' + p[0] : (s || '-'); }
+  function rangeLabel(a, b){ return a === b ? fmtD(a) : fmtD(a) + ' – ' + fmtD(b); }
+  function todayStr(){ var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+  function fail(err){ if (err && err.session) return; alert(err && err.message ? err.message : String(err)); }
+  function openM(id){ $(id).classList.add('open'); }
+  function closeM(id){ $(id).classList.remove('open'); }
+
+  function toLogin(msg){
+    A.token = null; A.me = null; A.perms = []; keep(null);
+    $('adminApp').style.display = 'none';
+    $('loginOverlay').classList.add('open');
+    $('loginMsg').textContent = msg || '';
+  }
+  function adminApi(action){
+    var args = [A.token].concat(Array.prototype.slice.call(arguments, 1));
+    return api(action, args).catch(function(err){
+      if (/Sesi tidak valid|diubah oleh admin/.test(err.message)) { err.session = true; toLogin(err.message); }
+      throw err;
+    });
+  }
+
+  // ---------- routing (#admin) ----------
+  function isAdminRoute(){ return /^#admin/i.test(location.hash) || /[?&](?:page=admin|admin)(?:&|$|=)/i.test(location.search); }
+  function enter(){
+    document.body.classList.add('in-admin'); document.body.classList.remove('in-form');
+    document.title = 'Portal SPMB';
+    if (A.me && A.token) return;
+    var t = A.token || stored();
+    window.scrollTo(0, 0);
+    if (t) {
+      A.token = t; $('loginOverlay').classList.remove('open');
+      initSession().catch(function(err){ if (!err.session) toLogin(err.message); });
+    } else toLogin('');
+  }
+  function leave(){
+    document.body.classList.remove('in-admin');
+    document.title = 'SPMB ' + ($('navBrandName').textContent || '');
+  }
+  function apply(){ if (isAdminRoute()) enter(); else leave(); }
+  function goPublic(e){ e.preventDefault(); history.replaceState(null, '', location.pathname); apply(); }
+  $('loginBack').addEventListener('click', goPublic);
+  $('backToPublic').addEventListener('click', goPublic);
+  [].forEach.call(document.querySelectorAll('[data-admin-link]'), function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      $('navLinks').classList.remove('open');
+      history.pushState(null, '', location.pathname + '#admin'); apply();
+    });
+  });
+  window.addEventListener('hashchange', apply);
+  window.addEventListener('popstate', apply);
+
+  // ---------- login / sesi ----------
+  $('loginForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var msg = $('loginMsg'), btn = $('loginBtn');
+    msg.textContent = 'Memeriksa…'; btn.disabled = true;
+    api('adminLogin', [$('loginUser').value, $('loginPass').value]).then(function(res){
+      btn.disabled = false;
+      if (!res.ok) { msg.textContent = res.message; return; }
+      A.token = res.token; keep(res.token); $('loginPass').value = ''; msg.textContent = '';
+      return initSession();
+    }).catch(function(err){ btn.disabled = false; msg.textContent = err.message; });
+  });
+  function initSession(){
+    return adminApi('getMe').then(function(me){
+      A.me = me; A.perms = me.perms || [];
+      $('meName').textContent = me.nama || me.username;
+      $('meRole').textContent = me.role === 'admin' ? 'Admin' : 'Guru';
+      [].forEach.call(document.querySelectorAll('.a-nav-item[data-perm]'), function(n){ n.style.display = can(n.dataset.perm) ? '' : 'none'; });
+      $('openSheetBtn').style.display = can('settings') ? '' : 'none';
+      $('addAgendaBtn').style.display = can('agenda.write') ? '' : 'none';
+      $('pwWarn').style.display = me.defaultPassword ? 'block' : 'none';
+      A.settingsLoaded = false; A.openAgenda = {};
+      $('loginOverlay').classList.remove('open');
+      $('adminApp').style.display = 'block';
+      var first = [].filter.call(document.querySelectorAll('.a-nav-item[data-panel]'), function(n){ return n.style.display !== 'none'; })[0];
+      gotoPanel(first ? first.dataset.panel : 'akun');
+    });
+  }
+  $('logoutBtn').addEventListener('click', function(){
+    var t = A.token; if (t) api('adminLogout', [t]).catch(function(){});
+    toLogin('');
+  });
+
+  function gotoPanel(name){
+    [].forEach.call(document.querySelectorAll('.a-nav-item[data-panel]'), function(i){ i.classList.toggle('active', i.dataset.panel === name); });
+    [].forEach.call(document.querySelectorAll('.a-panel'), function(p){ p.classList.toggle('active', p.id === 'panel-' + name); });
+    if (name === 'rekap') loadRekap();
+    else if (name === 'pendaftar') loadPendaftar();
+    else if (name === 'agenda') loadAgenda();
+    else if (name === 'pengguna') loadUsers();
+    else if (name === 'tampilan' || name === 'alur' || name === 'menu') ensureSettings();
+    window.scrollTo(0, 0);
+  }
+  [].forEach.call(document.querySelectorAll('.a-nav-item[data-panel]'), function(item){
+    item.addEventListener('click', function(){ gotoPanel(item.dataset.panel); });
+  });
+  document.addEventListener('click', function(e){
+    var c = e.target.closest('[data-close]'); if (c) closeM(c.dataset.close);
+    ['detailOverlay', 'agendaOverlay', 'laporanOverlay', 'userOverlay'].forEach(function(id){ if (e.target === $(id)) closeM(id); });
+  });
+  $('detailClose').addEventListener('click', function(){ closeM('detailOverlay'); });
+  $('lightbox').addEventListener('click', function(){ closeM('lightbox'); });
+
+  // ============================================================
+  // REKAP
+  // ============================================================
+  function pctOf(n, t){ return t > 0 ? n / t * 100 : 0; }
+  function donut(pct, color, title, sub){
+    var r = 52, c = 2 * Math.PI * r, p = Math.min(100, Math.max(0, pct));
+    var arc = p > 0 ? '<circle cx="65" cy="65" r="' + r + '" fill="none" stroke="' + color + '" stroke-width="14" stroke-linecap="round" stroke-dasharray="' + (c * p / 100).toFixed(1) + ' ' + c.toFixed(1) + '" transform="rotate(-90 65 65)"/>' : '';
+    return '<div class="rk-dn"><svg viewBox="0 0 130 130" role="img" aria-label="' + attr(title) + ' ' + Math.round(pct) + ' persen"><circle cx="65" cy="65" r="' + r + '" fill="none" stroke="#E4E4EF" stroke-width="14"/>' + arc +
+      '<text x="65" y="73" text-anchor="middle" font-size="24" font-weight="800" fill="#1B1E2E" font-family="Bricolage Grotesque,sans-serif">' + Math.round(pct) + '%</text></svg><b>' + esc(title) + '</b><small>' + esc(sub) + '</small></div>';
+  }
+  function hbar(label, n, total, color){
+    var p = total > 0 ? n / total * 100 : 0;
+    return '<div class="rk-hb"><span>' + esc(label) + '</span><div class="rk-tr"><i style="width:' + p.toFixed(1) + '%;background:' + color + '"></i></div><b>' + n + ' (' + Math.round(p) + '%)</b></div>';
+  }
+  function stat(label, val){ return '<div class="rk-stat"><small>' + esc(label) + '</small><b>' + esc(val) + '</b></div>'; }
+
+  function loadRekap(){
+    adminApi('getRekap').then(function(r){ A.rekap = r; renderRekap(); }).catch(function(err){
+      $('rekapBody').innerHTML = '<div class="a-empty-state">Gagal memuat rekap.</div>'; fail(err);
+    });
+  }
+  $('refreshRekap').addEventListener('click', loadRekap);
+  function renderRekap(){
+    var r = A.rekap, t = r.target, tt = t.siswa_baru + t.siswa_mutasi + t.pondok_pesantren, h = '';
+    h += '<div class="rk-stats">' + stat('Total Pendaftar', r.total) + stat('Total Target', tt || '—') + stat('Capaian Target', tt ? Math.round(r.total / tt * 100) + '%' : '—') + stat('Sisa Kuota', tt ? Math.max(0, tt - r.total) : '—') + '</div>';
+
+    h += '<div class="a-card"><h3>Persentase Capaian Terhadap Target</h3>';
+    if (!tt) h += '<p class="rk-note">Target belum diatur. ' + (can('target.write') ? 'Isi target pada bagian “Atur Target” di bawah.' : 'Minta admin untuk mengisi target.') + '</p>';
+    h += '<div class="rk-donuts">' + donut(pctOf(r.total, tt), '#1E2B7B', 'Total', r.total + ' dari ' + (tt || '—') + ' target') +
+      JALUR.map(function(j){ var n = r.perJenis[j[0]] || 0, tg = t[j[0]]; return donut(pctOf(n, tg), j[2], j[1], n + ' dari ' + (tg || '—') + ' target'); }).join('') + '</div></div>';
+
+    h += '<div class="a-card"><h3>Rincian per Jalur</h3><div class="a-table-wrap"><table><thead><tr><th>Jalur</th><th>Pendaftar</th><th>Target</th><th>Capaian</th><th>Sisa</th>' +
+      STATUS.map(function(s){ return '<th>' + esc(s) + '</th>'; }).join('') + '</tr></thead><tbody>' +
+      JALUR.map(function(j){
+        var n = r.perJenis[j[0]] || 0, tg = t[j[0]], ps = r.perJenisStatus[j[0]] || {};
+        return '<tr><td><b>' + esc(j[1]) + '</b></td><td>' + n + '</td><td>' + (tg || '—') + '</td><td>' + (tg ? Math.round(n / tg * 100) + '%' : '—') + '</td><td>' + (tg ? Math.max(0, tg - n) : '—') + '</td>' +
+          STATUS.map(function(s){ return '<td>' + (ps[s] || 0) + '</td>'; }).join('') + '</tr>';
+      }).join('') + '<tr><td><b>Total</b></td><td><b>' + r.total + '</b></td><td><b>' + (tt || '—') + '</b></td><td><b>' + (tt ? Math.round(r.total / tt * 100) + '%' : '—') + '</b></td><td><b>' + (tt ? Math.max(0, tt - r.total) : '—') + '</b></td>' +
+      STATUS.map(function(s){ return '<td><b>' + (r.perStatus[s] || 0) + '</b></td>'; }).join('') + '</tr></tbody></table></div></div>';
+
+    h += '<div class="rk-two"><div class="a-card"><h3>Status Seleksi</h3>' + STATUS.map(function(s){ return hbar(s, r.perStatus[s] || 0, r.total, STCOLOR[s]); }).join('') + '</div>' +
+      '<div class="a-card"><h3>Jenis Kelamin</h3>' + hbar('Laki-laki', r.perJK['Laki-laki'] || 0, r.total, '#1E2B7B') + hbar('Perempuan', r.perJK['Perempuan'] || 0, r.total, '#C2549B') + '</div></div>';
+
+    var mx = Math.max.apply(null, r.perHari.map(function(x){ return x.jumlah; }).concat([1]));
+    h += '<div class="a-card"><h3>Pendaftar 14 Hari Terakhir</h3><div class="rk-trend">' + r.perHari.map(function(x){
+      return '<div class="rk-col"><b>' + (x.jumlah || '') + '</b><div class="rk-bw"><i style="height:' + Math.round(x.jumlah / mx * 100) + '%"></i></div><small>' + x.tanggal.slice(8) + '/' + x.tanggal.slice(5, 7) + '</small></div>';
+    }).join('') + '</div></div>';
+
+    if (can('target.write')) {
+      h += '<div class="a-card"><h3>Atur Target Pendaftar</h3><div class="rk-target">' + JALUR.map(function(j){
+        return '<div class="field"><label for="tg_' + j[0] + '">' + esc(j[1]) + '</label><input type="number" min="0" max="100000" id="tg_' + j[0] + '" value="' + (t[j[0]] || 0) + '"></div>';
+      }).join('') + '</div><div class="a-save-bar"><button class="btn btn-primary" id="saveTarget">Simpan Target</button><span class="a-save-msg" id="msgTarget"></span></div></div>';
+    }
+    $('rekapBody').innerHTML = h;
+    var sb = $('saveTarget');
+    if (sb) sb.addEventListener('click', function(){
+      var payload = {}; JALUR.forEach(function(j){ payload[j[0]] = $('tg_' + j[0]).value; });
+      var m = $('msgTarget'); m.style.color = 'var(--teal)'; m.textContent = 'Menyimpan…';
+      adminApi('saveTarget', payload).then(loadRekap).catch(function(err){ m.style.color = 'var(--err)'; m.textContent = 'Gagal: ' + err.message; });
+    });
+  }
+
+  // ============================================================
+  // DATA PENDAFTAR
+  // ============================================================
+  function jenisLabel(id){ return JENIS[id] || id; }
+  function statusClass(s){
+    s = s || '';
+    if (s.indexOf('Verifikasi') > -1) return 'Diverifikasi';
+    if (s.indexOf('Diterima') > -1) return 'Diterima';
+    if (s.indexOf('Ditolak') > -1) return 'Ditolak';
+    return 'Baru';
+  }
+  function statusOptions(cur){ return STATUS.map(function(o){ return '<option value="' + o + '"' + (o === cur ? ' selected' : '') + '>' + o + '</option>'; }).join(''); }
+
+  function loadPendaftar(){
+    adminApi('getPendaftarList', $('filterJenis').value).then(function(rows){
+      var body = $('pendaftarBody'), empty = $('emptyState');
+      A.rows = rows; body.innerHTML = '';
+      if (!rows.length) { empty.style.display = 'block'; return; }
+      empty.style.display = 'none';
+      rows.forEach(function(r){
+        var act = '';
+        if (can('pendaftar.write')) act += '<select class="statusSelect" data-id="' + attr(r.id) + '" style="font-size:12px;padding:5px 6px;">' + statusOptions(r.status) + '</select> ';
+        act += '<button class="btn btn-ghost btn-sm" data-detail="' + attr(r.id) + '">Detail</button>';
+        if (can('pendaftar.delete')) act += ' <button class="btn btn-danger btn-sm" data-del="' + attr(r.id) + '">Hapus</button>';
+        var tr = document.createElement('tr');
+        tr.innerHTML = '<td>' + esc(r.id) + '</td><td>' + esc(r.timestamp) + '</td><td>' + esc(jenisLabel(r.jenis)) + '</td><td>' + esc(r.nama) + '</td><td>' + esc(r.nisn) + '</td><td>' + esc(r.noHp) + '</td>' +
+          '<td><span class="status-pill status-' + statusClass(r.status) + '">' + esc(r.status) + '</span></td>' +
+          '<td>' + (/^https?:\/\//.test(r.berkasUrl) ? '<a href="' + attr(r.berkasUrl) + '" target="_blank" rel="noopener">' + esc(r.berkas) + ' file</a>' : '-') + '</td><td>' + act + '</td>';
+        body.appendChild(tr);
+      });
+    }).catch(fail);
+  }
+  $('refreshPendaftar').addEventListener('click', loadPendaftar);
+  $('filterJenis').addEventListener('change', loadPendaftar);
+  $('openSheetBtn').addEventListener('click', function(){
+    adminApi('getSpreadsheetUrl').then(function(url){ window.open(url, '_blank', 'noopener'); }).catch(fail);
+  });
+  var DT_GROUPS = [
+    ['Data Siswa', ['Jenis Kelamin', 'Tempat Lahir', 'Tanggal Lahir', 'Agama', 'Penerima KPS/PKH', 'Nomor KPS/PKH']],
+    ['Alamat', ['RT', 'RW', 'Dusun', 'Desa/Kelurahan', 'Kecamatan', 'Kode Pos']],
+    ['Data Ayah', ['Nama Ayah', 'Tahun Lahir Ayah', 'Pendidikan Ayah', 'Pekerjaan Ayah', 'Penghasilan Ayah', 'NIK Ayah']],
+    ['Data Ibu', ['Nama Ibu', 'Tahun Lahir Ibu', 'Pendidikan Ibu', 'Pekerjaan Ibu', 'Penghasilan Ibu', 'NIK Ibu']],
+    ['Keluarga', ['Anak ke-', 'Jumlah Saudara Kandung']]
+  ];
+  function dtItem(l, v){ return '<div><small>' + esc(l) + '</small>' + (esc(v) || '-') + '</div>'; }
+  $('pendaftarBody').addEventListener('change', function(e){
+    var sel = e.target.closest('.statusSelect'); if (!sel) return;
+    sel.disabled = true;
+    adminApi('updateStatusPendaftar', sel.dataset.id, sel.value, '').then(loadPendaftar).catch(function(err){ fail(err); loadPendaftar(); });
+  });
+  $('pendaftarBody').addEventListener('click', function(e){
+    var d = e.target.closest('[data-detail]'), x = e.target.closest('[data-del]');
+    if (x) {
+      var rw = A.rows.filter(function(q){ return String(q.id) === x.dataset.del; })[0];
+      if (rw && confirm('Hapus data pendaftar "' + rw.nama + '"? Folder berkas di Google Drive tidak ikut terhapus.')) {
+        adminApi('deletePendaftar', x.dataset.del).then(loadPendaftar).catch(fail);
+      }
+      return;
+    }
+    if (!d) return;
+    var r = A.rows.filter(function(q){ return String(q.id) === d.dataset.detail; })[0]; if (!r) return;
+    var ex = {}; (r.extra || []).forEach(function(q){ ex[q.label] = q.value; });
+    $('dtName').textContent = r.nama;
+    $('dtSub').textContent = r.id + ' · ' + jenisLabel(r.jenis) + ' · ' + r.timestamp;
+    var h = '<div class="dt-sec">Kontak & Sekolah</div><div class="dt-grid">' + dtItem('NISN', r.nisn) + dtItem('No. HP', r.noHp) + dtItem('Sekolah Asal', r.asalSekolah) + dtItem('Alamat', r.alamat) + dtItem('Status', r.status) + '</div>';
+    DT_GROUPS.forEach(function(g){
+      var items = g[1].filter(function(l){ return ex[l]; });
+      if (items.length) h += '<div class="dt-sec">' + g[0] + '</div><div class="dt-grid">' + items.map(function(l){ return dtItem(l, ex[l]); }).join('') + '</div>';
+    });
+    h += '<div class="dt-sec">Berkas</div>' + (/^https?:\/\//.test(r.berkasUrl) ? '<a href="' + attr(r.berkasUrl) + '" target="_blank" rel="noopener">Buka folder berkas (' + esc(r.berkas) + ' file)</a>' : 'Tidak ada berkas.');
+    $('dtBody').innerHTML = h;
+    openM('detailOverlay');
+  });
+
+  // ============================================================
+  // AGENDA & LAPORAN PELAKSANAAN
+  // ============================================================
+  function loadAgenda(){
+    $('agendaList').innerHTML = '<div class="a-empty-state">Memuat…</div>';
+    adminApi('getAgendaList').then(function(list){ A.agendas = list; renderAgenda(); }).catch(function(err){
+      $('agendaList').innerHTML = '<div class="a-empty-state">Gagal memuat agenda.</div>'; fail(err);
+    });
+  }
+  $('refreshAgenda').addEventListener('click', loadAgenda);
+  function renderAgenda(){
+    var box = $('agendaList');
+    if (!A.agendas.length) {
+      box.innerHTML = '<div class="a-empty-state">Belum ada agenda.' + (can('agenda.write') ? ' Klik “+ Tambah Agenda”.' : '') + '</div>'; return;
+    }
+    box.innerHTML = A.agendas.map(function(a){
+      var open = !!A.openAgenda[a.id], cls = a.status.split(' ')[0];
+      return '<div class="ag-card" data-ag="' + attr(a.id) + '"><div class="ag-head"><div><h3>' + esc(a.nama) + '</h3><div class="ag-date">📅 ' + esc(rangeLabel(a.mulai, a.selesai)) + '</div></div><span class="ag-st ag-' + cls + '">' + esc(a.status) + '</span></div>' +
+        '<div class="a-actions"><button class="btn btn-ghost btn-sm" data-act="toggle">' + (open ? 'Sembunyikan' : 'Lihat') + ' Laporan (' + a.jumlahLaporan + ')</button>' +
+        (can('laporan.write') ? '<button class="btn btn-primary btn-sm" data-act="addlap">+ Tambah Laporan</button>' : '') +
+        (can('agenda.write') ? '<button class="btn btn-ghost btn-sm" data-act="edit">Ubah</button><button class="btn btn-danger btn-sm" data-act="del">Hapus</button>' : '') + '</div>' +
+        '<div class="ag-lap" id="lap_' + attr(a.id) + '" style="display:' + (open ? 'block' : 'none') + '"></div></div>';
+    }).join('');
+    A.agendas.forEach(function(a){ if (A.openAgenda[a.id]) loadLaporan(a.id); });
+  }
+  function agendaById(id){ return A.agendas.filter(function(a){ return a.id === id; })[0]; }
+  $('agendaList').addEventListener('click', function(e){
+    var b = e.target.closest('[data-act]'); if (!b) return;
+    var card = b.closest('[data-ag]'), id = card.dataset.ag, a = agendaById(id); if (!a) return;
+    var act = b.dataset.act;
+    if (act === 'toggle') { A.openAgenda[id] = !A.openAgenda[id]; renderAgenda(); }
+    else if (act === 'addlap') openLaporanDialog(a);
+    else if (act === 'edit') openAgendaDialog(a);
+    else if (act === 'del') {
+      if (confirm('Hapus agenda "' + a.nama + '" beserta seluruh laporan dan fotonya?')) adminApi('deleteAgenda', id).then(loadAgenda).catch(fail);
+    } else if (act === 'dellap') {
+      if (confirm('Hapus laporan ini beserta fotonya?')) adminApi('deleteLaporan', b.dataset.lap).then(loadAgenda).catch(fail);
+    }
+  });
+  $('lightbox').addEventListener('click', function(){ closeM('lightbox'); });
+  $('agendaList').addEventListener('click', function(e){
+    var img = e.target.closest('.lap-ph img'); if (!img) return;
+    $('lbImg').src = img.src; openM('lightbox');
+  });
+
+  function loadLaporan(agendaId){
+    var box = $('lap_' + agendaId); if (!box) return;
+    box.innerHTML = '<div class="a-empty-state" style="padding:16px">Memuat laporan…</div>';
+    adminApi('getLaporanList', agendaId).then(function(list){
+      if (!list.length) { box.innerHTML = '<div class="a-empty-state" style="padding:16px">Belum ada laporan pelaksanaan.</div>'; return; }
+      box.innerHTML = list.map(function(l){
+        var mine = A.me && String(l.dibuatOleh).toLowerCase() === String(A.me.username).toLowerCase();
+        var canDel = can('laporan.write') && (can('laporan.delete.any') || mine);
+        return '<div class="lap-item"><div class="lap-top"><b>' + esc(l.pelaksana) + '</b><span class="lap-meta">📅 ' + esc(fmtD(l.tanggal)) + ' · dilaporkan oleh ' + esc(l.dibuatOleh) + '</span></div>' +
+          '<div class="lap-ket">' + esc(l.keterangan) + '</div>' +
+          (l.fotoIds.length ? '<div class="lap-photos">' + l.fotoIds.map(function(f){ return '<div class="lap-ph" data-lap="' + attr(l.id) + '" data-fid="' + attr(f) + '">Memuat…</div>'; }).join('') + '</div>' : '<div class="lap-meta">Tanpa foto dokumentasi.</div>') +
+          (canDel ? '<div class="a-actions" style="margin-top:10px"><button class="btn btn-danger btn-sm" data-act="dellap" data-lap="' + attr(l.id) + '">Hapus Laporan</button></div>' : '') + '</div>';
+      }).join('');
+      var chain = Promise.resolve();
+      [].forEach.call(box.querySelectorAll('.lap-ph'), function(ph){
+        chain = chain.then(function(){
+          return adminApi('getLaporanFoto', ph.dataset.lap, ph.dataset.fid).then(function(r){
+            var im = document.createElement('img'); im.alt = 'Dokumentasi'; im.src = 'data:' + r.type + ';base64,' + r.data;
+            ph.textContent = ''; ph.appendChild(im);
+          }).catch(function(){ ph.textContent = 'Gagal'; });
+        });
+      });
+    }).catch(function(err){ box.innerHTML = '<div class="a-empty-state" style="padding:16px">Gagal memuat laporan.</div>'; fail(err); });
+  }
+
+  // dialog agenda
+  function openAgendaDialog(a){
+    $('agTitle').textContent = a ? 'Ubah Agenda' : 'Tambah Agenda';
+    $('agId').value = a ? a.id : ''; $('agNama').value = a ? a.nama : '';
+    $('agMulai').value = a ? a.mulai : ''; $('agSelesai').value = a ? a.selesai : '';
+    $('agMsg').textContent = ''; openM('agendaOverlay');
+  }
+  $('addAgendaBtn').addEventListener('click', function(){ openAgendaDialog(null); });
+  $('agMulai').addEventListener('change', function(){ if (!$('agSelesai').value || $('agSelesai').value < this.value) $('agSelesai').value = this.value; });
+  $('agendaForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var m = $('agMsg'); m.textContent = '';
+    if ($('agSelesai').value < $('agMulai').value) { m.textContent = 'Tanggal selesai tidak boleh sebelum tanggal mulai.'; return; }
+    adminApi('saveAgenda', { id: $('agId').value, nama: $('agNama').value, mulai: $('agMulai').value, selesai: $('agSelesai').value })
+      .then(function(){ closeM('agendaOverlay'); loadAgenda(); }).catch(function(err){ m.textContent = err.message; });
+  });
+
+  // dialog laporan
+  var LAPFILES = [];
+  function renderLapPrev(){
+    $('lapPrev').innerHTML = LAPFILES.map(function(f, i){
+      return '<div><img alt="" src="data:' + f.type + ';base64,' + f.data + '"><button type="button" data-i="' + i + '" aria-label="Hapus foto">×</button></div>';
+    }).join('');
+  }
+  $('lapPrev').addEventListener('click', function(e){
+    var b = e.target.closest('button[data-i]'); if (!b) return;
+    LAPFILES.splice(+b.dataset.i, 1); renderLapPrev();
+  });
+  function openLaporanDialog(a){
+    LAPFILES = []; renderLapPrev();
+    $('lapAgenda').value = a.id;
+    $('lapAgendaName').textContent = a.nama + ' · ' + rangeLabel(a.mulai, a.selesai);
+    $('lapPelaksana').value = (A.me && (A.me.nama || A.me.username)) || '';
+    $('lapTanggal').value = todayStr(); $('lapKet').value = ''; $('lapFoto').value = '';
+    $('lapMsg').textContent = ''; $('lapSubmit').disabled = false; $('lapSubmit').textContent = 'Simpan Laporan';
+    openM('laporanOverlay');
+  }
+  $('lapFoto').addEventListener('change', function(){
+    var m = $('lapMsg'); m.textContent = '';
+    var files = Array.prototype.slice.call(this.files); this.value = '';
+    var chain = Promise.resolve();
+    files.forEach(function(f){
+      chain = chain.then(function(){
+        if (LAPFILES.length >= 8) { m.textContent = 'Maksimal 8 foto.'; return; }
+        if (!/^image\/(jpeg|png|webp)$/.test(f.type)) { m.textContent = f.name + ': harus berupa foto JPG, PNG, atau WEBP.'; return; }
+        return shrink(f).then(function(it){ LAPFILES.push(it); }).catch(function(){ m.textContent = f.name + ': gagal dibaca.'; });
+      });
+    });
+    chain.then(renderLapPrev);
+  });
+  $('laporanForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var m = $('lapMsg'), btn = $('lapSubmit'); m.textContent = '';
+    btn.disabled = true; btn.textContent = 'Menyimpan…';
+    var agendaId = $('lapAgenda').value;
+    adminApi('addLaporan', agendaId, { pelaksana: $('lapPelaksana').value, tanggal: $('lapTanggal').value, keterangan: $('lapKet').value },
+      LAPFILES.map(function(f){ return { name: f.name, type: f.type, data: f.data }; }))
+      .then(function(){ closeM('laporanOverlay'); A.openAgenda[agendaId] = true; loadAgenda(); })
+      .catch(function(err){ btn.disabled = false; btn.textContent = 'Simpan Laporan'; m.textContent = err.message; });
+  });
+
+  // ============================================================
+  // PENGGUNA & ROLE (admin)
+  // ============================================================
+  function loadUsers(){
+    adminApi('getUsers').then(function(list){
+      $('userBody').innerHTML = list.map(function(u){
+        var me = A.me && u.username.toLowerCase() === A.me.username.toLowerCase();
+        return '<tr><td>' + esc(u.username) + (me ? ' <small>(Anda)</small>' : '') + '</td><td>' + esc(u.nama) + '</td><td><span class="status-pill ' + (u.role === 'admin' ? 'status-Diverifikasi' : 'status-Baru') + '">' + (u.role === 'admin' ? 'Admin' : 'Guru') + '</span></td><td>' + esc(String(u.dibuat).slice(0, 10)) + '</td>' +
+          '<td class="a-actions"><button class="btn btn-ghost btn-sm" data-uedit="' + attr(u.username) + '" data-nama="' + attr(u.nama) + '" data-role="' + attr(u.role) + '">Ubah</button>' +
+          (me ? '' : ' <button class="btn btn-danger btn-sm" data-udel="' + attr(u.username) + '">Hapus</button>') + '</td></tr>';
+      }).join('');
+    }).catch(fail);
+  }
+  function openUserDialog(u){
+    $('uTitle').textContent = u ? 'Ubah Pengguna' : 'Tambah Pengguna';
+    $('uNew').value = u ? '' : '1';
+    $('uUsername').value = u ? u.username : ''; $('uUsername').disabled = !!u;
+    $('uNama').value = u ? u.nama : ''; $('uRole').value = u ? u.role : 'guru'; $('uPass').value = '';
+    $('uPassLbl').textContent = u ? 'Password Baru (kosongkan bila tidak diganti)' : 'Password *';
+    $('uPass').required = !u; $('uMsg').textContent = ''; openM('userOverlay');
+  }
+  $('addUserBtn').addEventListener('click', function(){ openUserDialog(null); });
+  $('userBody').addEventListener('click', function(e){
+    var ed = e.target.closest('[data-uedit]'), dl = e.target.closest('[data-udel]');
+    if (ed) openUserDialog({ username: ed.dataset.uedit, nama: ed.dataset.nama, role: ed.dataset.role });
+    if (dl && confirm('Hapus akun "' + dl.dataset.udel + '"?')) adminApi('deleteUser', dl.dataset.udel).then(loadUsers).catch(fail);
+  });
+  $('userForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var m = $('uMsg'); m.textContent = '';
+    adminApi('saveUser', { username: $('uUsername').value, nama: $('uNama').value, role: $('uRole').value, password: $('uPass').value, isNew: $('uNew').value === '1' })
+      .then(function(){ closeM('userOverlay'); loadUsers(); }).catch(function(err){ m.textContent = err.message; });
+  });
+
+  // ---------- akun saya ----------
+  $('savePass').addEventListener('click', function(){
+    var msg = $('msgPass'), oldP = $('pOld').value, newP = $('pNew').value;
+    if (newP.length < 8) { msg.style.color = 'var(--err)'; msg.textContent = 'Password baru minimal 8 karakter.'; return; }
+    msg.style.color = 'var(--teal)'; msg.textContent = 'Menyimpan…';
+    adminApi('changeMyPassword', oldP, newP).then(function(){
+      msg.textContent = '✓ Password berhasil diubah'; $('pOld').value = ''; $('pNew').value = ''; $('pwWarn').style.display = 'none';
+    }).catch(function(err){ msg.style.color = 'var(--err)'; msg.textContent = 'Gagal: ' + err.message; });
+  });
+
+  // ============================================================
+  // PENGATURAN TAMPILAN / ALUR / MENU (admin)
+  // ============================================================
+  function ensureSettings(){
+    if (A.settingsLoaded) return; A.settingsLoaded = true;
+    adminApi('getAdminSettings').then(function(s){ fillTampilan(s); renderAlur(s.alur || []); renderMenu(s.menus || []); })
+      .catch(function(err){ A.settingsLoaded = false; fail(err); });
+  }
+  function fillTampilan(s){
+    $('s_headerColor').value = s.headerColor || '#1E2B7B'; $('s_headerColor_hex').value = s.headerColor || '#1E2B7B';
+    $('s_accentColor').value = s.accentColor || '#E4A73B'; $('s_accentColor_hex').value = s.accentColor || '#E4A73B';
+    $('s_namaSekolah').value = s.namaSekolah || ''; $('s_bannerTitle').value = s.bannerTitle || ''; $('s_bannerSubtitle').value = s.bannerSubtitle || '';
+    $('s_waNumber').value = s.waNumber || ''; $('s_waMessage').value = s.waMessage || '';
+    $('s_logoUrl').value = s.logoUrl || ''; $('s_websiteUrl').value = s.websiteUrl || '';
+    showLogoPrev(s.logoUrl || '');
+  }
+  ['headerColor', 'accentColor'].forEach(function(key){
+    var picker = $('s_' + key), hex = $('s_' + key + '_hex');
+    picker.addEventListener('input', function(){ hex.value = picker.value; });
+    hex.addEventListener('input', function(){ if (/^#[0-9A-Fa-f]{6}$/.test(hex.value)) picker.value = hex.value; });
+  });
+  function saveWithFeedback(payload, msgId){
+    var msg = $(msgId); msg.style.color = 'var(--teal)'; msg.textContent = 'Menyimpan…';
+    adminApi('saveSettings', payload).then(function(){
+      msg.textContent = '✓ Tersimpan'; setTimeout(function(){ msg.textContent = ''; }, 2500);
+    }).catch(function(err){ msg.style.color = 'var(--err)'; msg.textContent = 'Gagal: ' + err.message; });
+  }
+  $('saveTampilan').addEventListener('click', function(){
+    saveWithFeedback({
+      headerColor: $('s_headerColor_hex').value, accentColor: $('s_accentColor_hex').value,
+      namaSekolah: $('s_namaSekolah').value, bannerTitle: $('s_bannerTitle').value, bannerSubtitle: $('s_bannerSubtitle').value,
+      waNumber: $('s_waNumber').value, waMessage: $('s_waMessage').value,
+      logoUrl: $('s_logoUrl').value.trim(), websiteUrl: $('s_websiteUrl').value.trim()
+    }, 'msgTampilan');
+  });
+  function showLogoPrev(url){
+    var box = $('logoPrevBox'), img = $('logoPrev');
+    if (safeUrl(url)) { img.src = url; box.style.display = 'block'; } else box.style.display = 'none';
+  }
+  $('s_logoUrl').addEventListener('change', function(){ showLogoPrev(this.value); });
+  $('logoUpload').addEventListener('click', function(){
+    var f = $('logoFile').files[0], msg = $('msgLogo');
+    msg.style.color = 'var(--err)';
+    if (!f) { msg.textContent = 'Pilih berkas logo terlebih dahulu.'; return; }
+    if (f.size > 1024 * 1024) { msg.textContent = 'Ukuran logo maksimal 1 MB.'; return; }
+    msg.style.color = 'var(--teal)'; msg.textContent = 'Mengunggah…';
+    readB64(f).then(function(item){
+      return adminApi('uploadLogo', { name: item.name, type: item.type, data: item.data });
+    }).then(function(res){
+      $('s_logoUrl').value = res.url; showLogoPrev(res.url); msg.textContent = '✓ Logo tersimpan';
+    }).catch(function(err){ msg.style.color = 'var(--err)'; msg.textContent = 'Gagal: ' + err.message; });
+  });
+
+  var alurData = [];
+  function renderAlur(list){
+    alurData = JSON.parse(JSON.stringify(list));
+    var box = $('alurList'); box.innerHTML = '';
+    alurData.forEach(function(step, idx){
+      var row = document.createElement('div'); row.className = 'a-item-row';
+      row.innerHTML = '<div class="a-item-top"><strong>Langkah ' + (idx + 1) + '</strong><button class="a-remove-btn" data-idx="' + idx + '">Hapus</button></div>' +
+        '<div class="a-row2"><div class="field"><label>Emoji/Ikon</label><input type="text" data-field="icon" data-idx="' + idx + '" value="' + attr(step.icon) + '"></div>' +
+        '<div class="field"><label>Judul</label><input type="text" data-field="title" data-idx="' + idx + '" value="' + attr(step.title) + '"></div></div>' +
+        '<div class="field"><label>Deskripsi singkat</label><input type="text" data-field="desc" data-idx="' + idx + '" value="' + attr(step.desc) + '"></div>' +
+        '<div class="field"><label>Detail tambahan (opsional)</label><textarea data-field="detail" data-idx="' + idx + '" rows="2">' + esc(step.detail || '') + '</textarea></div>';
+      box.appendChild(row);
+    });
+    [].forEach.call(box.querySelectorAll('input, textarea'), function(inp){
+      inp.addEventListener('input', function(){ alurData[inp.dataset.idx][inp.dataset.field] = inp.value; });
+    });
+    [].forEach.call(box.querySelectorAll('.a-remove-btn'), function(btn){
+      btn.addEventListener('click', function(){ alurData.splice(btn.dataset.idx, 1); renderAlur(alurData); });
+    });
+  }
+  $('addAlur').addEventListener('click', function(){ alurData.push({ icon: '✨', title: 'Langkah Baru', desc: 'Deskripsi langkah.' }); renderAlur(alurData); });
+  $('saveAlur').addEventListener('click', function(){ saveWithFeedback({ alur: alurData }, 'msgAlur'); });
+
+  var menuData = [];
+  function renderMenu(list){
+    menuData = JSON.parse(JSON.stringify(list));
+    var wrap = $('menuList'); wrap.innerHTML = '';
+    menuData.forEach(function(m, idx){
+      var card = document.createElement('div'); card.className = 'a-card';
+      card.innerHTML = '<h3>Menu ' + (idx + 1) + ' — ' + esc(m.title || '') + '</h3>' +
+        '<div class="a-row2"><div class="field"><label>Emoji/Ikon</label><input type="text" data-field="icon" data-idx="' + idx + '" value="' + attr(m.icon) + '"></div>' +
+        '<div class="field"><label>Judul Menu</label><input type="text" data-field="title" data-idx="' + idx + '" value="' + attr(m.title) + '"></div></div>' +
+        '<div class="field"><label>Warna Aksen Kartu</label><div class="color-input"><input type="color" data-colorfield="warna" data-idx="' + idx + '" value="' + attr(m.warna || '#E4A73B') + '">' +
+        '<input type="text" data-field="warna" data-idx="' + idx + '" value="' + attr(m.warna) + '"></div></div>' +
+        '<div class="field"><label>Dokumen Persyaratan (satu baris = satu dokumen)</label><textarea data-field="persyaratan" data-idx="' + idx + '" rows="4">' + esc((m.persyaratan || []).join('\n')) + '</textarea></div>';
+      wrap.appendChild(card);
+    });
+    [].forEach.call(wrap.querySelectorAll('input[data-field], textarea[data-field]'), function(inp){
+      inp.addEventListener('input', function(){
+        var idx = inp.dataset.idx, field = inp.dataset.field;
+        if (field === 'persyaratan') menuData[idx].persyaratan = inp.value.split('\n').map(function(x){ return x.trim(); }).filter(Boolean);
+        else menuData[idx][field] = inp.value;
+      });
+    });
+    [].forEach.call(wrap.querySelectorAll('input[data-colorfield]'), function(inp){
+      inp.addEventListener('input', function(){
+        var idx = inp.dataset.idx; menuData[idx].warna = inp.value;
+        var sib = wrap.querySelector('input[data-field="warna"][data-idx="' + idx + '"]'); if (sib) sib.value = inp.value;
+      });
+    });
+  }
+  $('saveMenu').addEventListener('click', function(){ saveWithFeedback({ menus: menuData }, 'msgMenu'); });
+
+  apply();
+})();
 </script>
 </body>
 </html>

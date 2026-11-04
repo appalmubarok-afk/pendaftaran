@@ -50,7 +50,13 @@
 
 
 
-    .menus{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+    .menus{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:880px;margin:0 auto;}
+    .prog-btns{display:grid;gap:10px;}
+    .prog-btns .btn{flex-direction:column;gap:2px;}
+    .prog-btns .btn small{display:block;font-weight:500;font-size:12.5px;opacity:.92;}
+    .print-box{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+    .print-box h3{margin-bottom:4px !important;}
+    .print-box p{margin:0;font-size:14.5px;color:var(--ink-soft);}
     .menu-card{
       background:#fff;border-radius:var(--radius);border:1px solid var(--line);
       border-top:4px solid var(--m-color,var(--gold));padding:26px 24px 24px;
@@ -342,6 +348,9 @@
     .btn-wa:hover{background:#1fb858;}
     .btn-navy2{background:var(--navy);color:#fff;}
     @media(max-width:760px){.contact-grid{grid-template-columns:1fr;}.c-card{flex-direction:column;padding:24px;}.sec{padding:60px 0;}.wrap{padding-left:20px;padding-right:20px;}}
+
+    /* footer: hanya copyright */
+    .site-footer{background:var(--navy-deep);color:#B9BEE3;padding:22px 0;font-size:14px;text-align:center;}
 
     /* admin: logo */
     .logo-prev{background:repeating-conic-gradient(#f0f0f6 0% 25%,#fff 0% 50%) 50%/16px 16px;border:1px solid var(--line);border-radius:10px;padding:10px;margin-bottom:10px;display:none;}
@@ -819,9 +828,9 @@
   <section class="sec" id="pantau">
     <div class="wrap">
       <div class="sec-head center">
-        <span class="kicker">STATISTIK PENDAFTAR</span>
+        <span class="kicker">STATISTIK PENDAFTAR SISWA BARU</span>
         <h2>Pantau SPMB</h2>
-        <p>Perkembangan jumlah pendaftar terhadap target penerimaan.</p>
+        <p>Perkembangan jumlah pendaftar jalur Siswa Baru terhadap target penerimaan.</p>
       </div>
       <div class="pt-card">
         <div class="rk-donuts" id="pantauBody"><div class="a-empty-state" style="grid-column:1/-1">Memuat data…</div></div>
@@ -880,6 +889,10 @@
     </div>
   </section>
 
+  <footer class="site-footer">
+    <div class="wrap" id="footerNama">Nama Sekolah</div>
+  </footer>
+
   </div><!-- /#landing -->
 
   <div class="modal-overlay" id="pantauOverlay">
@@ -888,11 +901,11 @@
       <h3>Daftar Pendaftar</h3>
       <p class="modal-sub" id="pantauSub"></p>
       <div class="a-toolbar">
-        <select id="pantauJenis"><option value="all">Semua Jalur</option><option value="siswa_baru">Siswa Baru</option><option value="siswa_mutasi">Siswa Mutasi</option><option value="pondok_pesantren">Pondok Pesantren</option></select>
+        <select id="pantauJenis"><option value="all">Semua Program</option><option value="Non Boarding">Non Boarding</option><option value="Boarding School">Boarding School</option></select>
         <input type="search" class="pt-search" id="pantauCari" placeholder="Cari nama, alamat, atau asal sekolah">
       </div>
       <div class="a-table-wrap">
-        <table><thead><tr><th>No</th><th>Nama</th><th>Jalur</th><th>Alamat</th><th>Asal Sekolah</th></tr></thead><tbody id="pantauRows"></tbody></table>
+        <table><thead><tr><th>No</th><th>Nama</th><th>Program</th><th>Alamat</th><th>Asal Sekolah</th></tr></thead><tbody id="pantauRows"></tbody></table>
         <div class="a-empty-state" id="pantauEmpty" style="display:none;"></div>
       </div>
     </div>
@@ -911,6 +924,7 @@
     <div class="fp-wrap">
       <p class="fp-intro">Isi semua kolom dengan data yang benar sesuai dokumen resmi. Kolom bertanda * wajib diisi.</p>
       <form id="fullForm" novalidate>
+        <div class="fp-card print-box" id="printBox"></div>
         <div id="fpSections"></div>
         <div class="fp-card">
           <h3>Unggah Berkas</h3>
@@ -920,7 +934,7 @@
           <div id="fileList"></div>
         </div>
         <div class="hp-field" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-        <label class="consent"><input type="checkbox" id="consent" required> <span>Saya menyatakan data yang diisi benar dan menyetujui penggunaan data pribadi (termasuk NISN, NIK, dan dokumen) hanya untuk keperluan seleksi penerimaan peserta didik baru. Nama (disingkat), desa/kecamatan, dan asal sekolah dapat ditampilkan pada halaman Pantau SPMB.</span></label>
+        <label class="consent"><input type="checkbox" id="consent" required> <span>Saya menyatakan data yang diisi benar dan menyetujui penggunaan data pribadi (termasuk dokumen yang diunggah) hanya untuk keperluan seleksi penerimaan peserta didik baru. Khusus jalur Siswa Baru, nama (disingkat), desa/kecamatan, dan asal sekolah dapat ditampilkan pada halaman Pantau SPMB.</span></label>
         <button type="submit" class="btn fp-submit" id="fpSubmit">Kirim Pendaftaran</button>
         <div class="form-msg" id="fpMsg"></div>
       </form>
@@ -1049,14 +1063,13 @@
             <option value="all">Semua Jalur</option>
             <option value="siswa_baru">Siswa Baru</option>
             <option value="siswa_mutasi">Siswa Mutasi</option>
-            <option value="pondok_pesantren">Pondok Pesantren</option>
           </select>
           <button class="btn btn-ghost btn-sm" id="refreshPendaftar">🔄 Muat Ulang</button>
           <button class="btn btn-ghost btn-sm" id="openSheetBtn">📄 Buka Spreadsheet</button>
         </div>
         <div class="a-table-wrap">
           <table>
-            <thead><tr><th>ID</th><th>Waktu</th><th>Jalur</th><th>Nama</th><th>NISN</th><th>No. HP</th><th>Status</th><th>Berkas</th><th>Aksi</th></tr></thead>
+            <thead><tr><th>ID</th><th>Waktu</th><th>Jalur</th><th>Nama</th><th>Program</th><th>No. HP</th><th>Status</th><th>Berkas</th><th>Aksi</th></tr></thead>
             <tbody id="pendaftarBody"></tbody>
           </table>
           <div class="a-empty-state" id="emptyState" style="display:none;">Belum ada pendaftar.</div>
@@ -1114,7 +1127,8 @@
 
       <!-- MENU -->
       <div class="a-panel" id="panel-menu">
-        <div class="a-panel-head"><h1>Menu &amp; Persyaratan</h1><p>Kelola 3 jalur pendaftaran: ikon, judul, warna, dan dokumen persyaratan.</p></div>
+        <div class="a-panel-head"><h1>Menu &amp; Persyaratan</h1><p>Kelola 2 jalur pendaftaran (Siswa Baru &amp; Mutasi): ikon, judul, warna, dokumen persyaratan, dan formulir PDF yang bisa dicetak.</p></div>
+        <div class="a-card" id="formulirCard"><h3>Formulir Pendaftaran (PDF)</h3><p class="rk-note" style="margin-bottom:12px;">Berkas ini muncul sebagai tombol “Cetak Formulir” di halaman pendaftaran. Format PDF, maksimal 3 MB.</p><div id="formulirList"></div></div>
         <div id="menuList"></div>
         <div class="a-save-bar"><button class="btn btn-primary" id="saveMenu">Simpan Menu</button><span class="a-save-msg" id="msgMenu"></span></div>
       </div>
@@ -1230,9 +1244,9 @@
   const SITE_DEFAULT = 'https://www.smpitalmubarok.sch.id/';
   function safeUrl(u, fb){ u = String(u || '').trim(); return /^https?:\/\//i.test(u) ? u : (fb || ''); }
 
-  function startJalur(id){
+  function startJalur(id, prog){
     const m = (MENUS || []).filter(function(x){ return x.id === id; })[0];
-    if (m && FULL.indexOf(id) > -1) openFormPage(id, m.title, m.persyaratan || []);
+    if (m && FULL.indexOf(id) > -1) openFormPage(id, m.title, m.persyaratan || [], prog);
   }
 
   function renderPublic(s){
@@ -1244,6 +1258,7 @@
     document.getElementById('bannerEyebrow').textContent = 'SPMB — ' + nama;
     document.getElementById('bannerTitle').textContent = s.bannerTitle || '';
     document.getElementById('bannerSubtitle').textContent = s.bannerSubtitle || '';
+    document.getElementById('footerNama').textContent = '© ' + new Date().getFullYear() + ' ' + nama + '. Seluruh hak cipta dilindungi.';
     document.getElementById('ctaSchool').textContent = nama || 'kami';
     document.title = 'SPMB ' + nama;
 
@@ -1273,6 +1288,7 @@
     buildFlow(s.alur || []);
 
     MENUS = s.menus || [];
+    FORMULIR = s.formulir || {};
     const menuBox = document.getElementById('menuBox');
     menuBox.innerHTML = '';
     (s.menus || []).forEach(function(m){
@@ -1285,11 +1301,15 @@
         '<h3>'+esc(m.title)+'</h3>' +
         '<div class="label-persyaratan">DOKUMEN PERSYARATAN</div>' +
         '<ul>'+li+'</ul>' +
-        '<button class="btn btn-submit" data-jenis="'+encodeURIComponent(m.id)+'" data-title="'+encodeURIComponent(m.title)+'">Daftar Sekarang</button>';
+        (m.id === 'siswa_baru'
+          ? '<div class="prog-btns">' +
+            '<button class="btn btn-submit" data-jenis="'+encodeURIComponent(m.id)+'" data-prog="Non Boarding">Daftar Non Boarding<small>Hanya sekolah</small></button>' +
+            '<button class="btn btn-submit" data-jenis="'+encodeURIComponent(m.id)+'" data-prog="Boarding School">Daftar Boarding School<small>Sekolah + pondok</small></button></div>'
+          : '<button class="btn btn-submit" data-jenis="'+encodeURIComponent(m.id)+'">Daftar Sekarang</button>');
       menuBox.appendChild(card);
     });
     document.querySelectorAll('.menu-card .btn-submit').forEach(function(btn){
-      btn.addEventListener('click', function(){ startJalur(decodeURIComponent(btn.dataset.jenis)); });
+      btn.addEventListener('click', function(){ startJalur(decodeURIComponent(btn.dataset.jenis), btn.dataset.prog || ''); });
     });
   }
 
@@ -1343,33 +1363,28 @@
   // ============================================================
   // HALAMAN FORMULIR LENGKAP (siswa baru & mutasi)
   // ============================================================
-  let MENUS = [], FILES = [], CUR_JENIS = '';
-  const FULL = ['siswa_baru','siswa_mutasi','pondok_pesantren'];
-  const OPT_JK = ['Laki-laki','Perempuan'];
-  const OPT_AGAMA = ['Islam','Kristen','Katolik','Hindu','Buddha','Konghucu','Lainnya'];
-  const OPT_YT = ['Tidak','Ya'];
-  const OPT_PEND = ['Tidak sekolah','SD/sederajat','SMP/sederajat','SMA/sederajat','D1','D2','D3','D4/S1','S2','S3'];
-  const OPT_KERJA = ['Tidak bekerja','Petani','Nelayan','Peternak','Pedagang','Wiraswasta','Karyawan swasta','PNS/TNI/Polri','Buruh','Guru/Dosen','Sudah meninggal','Lainnya'];
-  const OPT_GAJI = ['Tidak berpenghasilan','Kurang dari Rp 500.000','Rp 500.000 - 999.999','Rp 1.000.000 - 1.999.999','Rp 2.000.000 - 4.999.999','Rp 5.000.000 - 20.000.000','Lebih dari Rp 20.000.000'];
+  let MENUS = [], FILES = [], CUR_JENIS = '', FORMULIR = {};
+  const FULL = ['siswa_baru','siswa_mutasi'];
+  const OPT_PROGRAM = ['Non Boarding','Boarding School'];
   // [nama, label, tipe, opsi, pola, opsional]
-  const ortu = function(x, n){ return [
-    ['nama'+x,'Nama '+n,'text'],['tahunLahir'+x,'Tahun Lahir '+n,'text',0,'(19|20)\\d{2}'],
-    ['pendidikan'+x,'Jenjang Pendidikan '+n,'sel',OPT_PEND],['pekerjaan'+x,'Pekerjaan '+n,'sel',OPT_KERJA],
-    ['penghasilan'+x,'Penghasilan '+n,'sel',OPT_GAJI],['nik'+x,'NIK '+n+' (16 digit)','text',0,'\\d{16}',1]]; };
   const SEC = [
-    ['Data Siswa',[['nama','Nama Lengkap','text'],['jenisKelamin','Jenis Kelamin','sel',OPT_JK],['nisn','NISN (10 digit)','text',0,'\\d{10}'],
-      ['tempatLahir','Tempat Lahir','text'],['tanggalLahir','Tanggal Lahir','date'],['agama','Agama','sel',OPT_AGAMA],
-      ['noHp','Nomor HP/Telepon','tel',0,'[0-9+\\- ]{8,16}'],['penerimaKps','Penerima KPS/PKH','sel',OPT_YT],['noKps','Nomor KPS/PKH','text',0,'',1]]],
-    ['Alamat',[['rt','RT','text',0,'\\d{1,3}'],['rw','RW','text',0,'\\d{1,3}'],['dusun','Dusun','text',0,'',1],
-      ['desa','Desa/Kelurahan','text'],['kecamatan','Kecamatan','text'],['kodePos','Kode Pos','text',0,'\\d{5}']]],
-    ['Data Ayah',ortu('Ayah','Ayah')],['Data Ibu',ortu('Ibu','Ibu')],
-    ['Sekolah Asal & Keluarga',[['asalSekolah','Sekolah Asal','text'],['anakKe','Anak ke-berapa','text',0,'\\d{1,2}'],['jumlahSaudara','Jumlah Saudara Kandung','text',0,'\\d{1,2}']]]
+    ['Data Pendaftar',[
+      ['program','Program (Non Boarding: hanya sekolah · Boarding School: sekolah + pondok)','sel',OPT_PROGRAM],
+      ['nama','Nama Lengkap Siswa','text'],
+      ['asalSekolah','Asal Sekolah','text'],
+      ['noHp','Nomor HP/WhatsApp','tel',0,'[0-9+\\- ]{8,16}']]],
+    ['Alamat',[
+      ['alamat','Alamat Lengkap (jalan, dusun, RT/RW)','area'],
+      ['desa','Desa/Kelurahan','text'],
+      ['kecamatan','Kecamatan','text']]]
   ];
   function fieldHtml(f){
     const r = f[5] ? '' : ' required', lbl = esc(f[1]) + (f[5] ? '' : ' *'), fid = 'f_' + f[0];
     let inp;
     if (f[2] === 'sel'){
       inp = '<select id="'+fid+'" name="'+f[0]+'"'+r+'><option value="">Pilih…</option>' + f[3].map(function(o){ return '<option>'+esc(o)+'</option>'; }).join('') + '</select>';
+    } else if (f[2] === 'area'){
+      inp = '<textarea id="'+fid+'" name="'+f[0]+'" rows="3"'+r+'></textarea>';
     } else {
       const pat = f[4] ? ' pattern="'+f[4]+'"' + (f[4].indexOf('\\d')===0 ? ' inputmode="numeric"' : '') : '';
       inp = '<input id="'+fid+'" name="'+f[0]+'" type="'+f[2]+'"'+pat+r+' autocomplete="off">';
@@ -1380,11 +1395,6 @@
     return '<div class="fp-card"><h3>'+sec[0]+'</h3><div class="fp-grid">' + sec[1].map(fieldHtml).join('') + '</div></div>';
   }).join('');
   const fullForm = document.getElementById('fullForm');
-  fullForm.noKps.disabled = true;
-  fullForm.penerimaKps.addEventListener('change', function(){
-    const y = fullForm.penerimaKps.value === 'Ya';
-    fullForm.noKps.disabled = !y; fullForm.noKps.required = y; if (!y) fullForm.noKps.value = '';
-  });
   function updateProgress(){
     const els = Array.prototype.filter.call(fullForm.elements, function(e){ return e.required && !e.disabled; });
     const done = els.filter(function(e){ return e.type === 'checkbox' ? e.checked : e.value.trim(); }).length + (FILES.length ? 1 : 0);
@@ -1405,9 +1415,16 @@
     document.body.classList.remove('in-form');
     window.scrollTo({ top: SCROLL_Y, behavior: 'instant' });
   }
-  function openFormPage(id, title, persyaratan){
-    CUR_JENIS = id; FILES = []; SENT = false; fullForm.reset(); fullForm.noKps.disabled = true;
+  function openFormPage(id, title, persyaratan, prog){
+    CUR_JENIS = id; FILES = []; SENT = false; fullForm.reset();
+    const baru = id === 'siswa_baru', pSel = fullForm.elements['program'];
+    pSel.value = baru ? (prog || '') : ''; pSel.disabled = !baru;
+    pSel.closest('.field').style.display = baru ? '' : 'none';
     document.getElementById('fpTitle').textContent = title;
+    const fm = FORMULIR[id], fUrl = fm ? safeUrl(fm.url, '') : '';
+    document.getElementById('printBox').innerHTML = '<div><h3>Formulir Pendaftaran</h3><p>' +
+      (fUrl ? 'Unduh dan cetak formulir PDF sebagai kelengkapan pendaftaran.' : 'Formulir PDF belum tersedia. Hubungi panitia melalui WhatsApp.') + '</p></div>' +
+      (fUrl ? '<a class="btn btn-gold" href="' + esc(fUrl) + '" target="_blank" rel="noopener">🖨️ Cetak Formulir (PDF)</a>' : '');
     document.getElementById('reqList').innerHTML = '<b>Dokumen yang perlu diunggah:</b><ul>' + (persyaratan||[]).map(function(x){ return '<li>'+esc(x)+'</li>'; }).join('') + '</ul>';
     document.getElementById('fpMsg').textContent = '';
     renderFiles(); updateProgress();
@@ -1500,15 +1517,7 @@
   // ============================================================
   // PANTAU SPMB (diagram publik + daftar)
   // ============================================================
-  const PT_DEF = [['siswa_baru','Siswa Baru','#E4A73B'],['siswa_mutasi','Siswa Mutasi','#2E8B7B'],['pondok_pesantren','Pondok Pesantren','#8B3A3A']];
-  let PT_ROWS = [];
-  function ptJalur(){
-    return PT_DEF.map(function(d){
-      const m = (MENUS || []).filter(function(x){ return x.id === d[0]; })[0];
-      const warna = m && /^#[0-9a-fA-F]{6}$/.test(m.warna || '') ? m.warna : d[2];
-      return [d[0], m && m.title ? String(m.title).replace(/^Pendaftaran\s+/i, '') : d[1], warna];
-    });
-  }
+  const PT_PROG = [['Non Boarding','#2E8B7B'],['Boarding School','#8B3A3A']];
   function ptDonut(n, target, color, title){
     const r = 52, c = 2 * Math.PI * r, pct = target > 0 ? Math.min(100, n / target * 100) : 0;
     const arc = pct > 0 ? '<circle cx="65" cy="65" r="' + r + '" fill="none" stroke="' + color + '" stroke-width="14" stroke-linecap="round" stroke-dasharray="' + (c * pct / 100).toFixed(1) + ' ' + c.toFixed(1) + '" transform="rotate(-90 65 65)"/>' : '';
@@ -1520,22 +1529,21 @@
   function loadPantau(pending){
     const sec = document.getElementById('pantau');
     return (pending || api('getPublicRekap')).then(function(r){
-      const t = r.target || {}, tt = (t.siswa_baru || 0) + (t.siswa_mutasi || 0) + (t.pondok_pesantren || 0);
-      document.getElementById('pantauBody').innerHTML = ptDonut(r.total, tt, '#1E4FB5', 'Total') +
-        ptJalur().map(function(j){ return ptDonut(r.perJenis[j[0]] || 0, t[j[0]] || 0, j[2], j[1]); }).join('');
-      document.getElementById('pantauInfo').textContent = 'Total ' + r.total + ' pendaftar · diperbarui ' + r.updated;
+      const t = r.target || {}, pp = r.perProgram || {};
+      document.getElementById('pantauBody').innerHTML = ptDonut(r.total, t.siswa_baru || 0, '#E4A73B', 'Siswa Baru') +
+        PT_PROG.map(function(p){ return ptDonut(pp[p[0]] || 0, 0, p[1], p[0]); }).join('');
+      document.getElementById('pantauInfo').textContent = 'Total ' + r.total + ' pendaftar siswa baru · diperbarui ' + r.updated;
       document.getElementById('pantauDetailBtn').style.display = r.listEnabled ? '' : 'none';
       sec.style.display = '';
     }).catch(function(){ sec.style.display = 'none'; });
   }
-  function ptName(id){ const j = PT_DEF.filter(function(d){ return d[0] === id; })[0]; return j ? j[1] : id; }
   function renderPtRows(){
     const jenis = document.getElementById('pantauJenis').value, q = document.getElementById('pantauCari').value.trim().toLowerCase();
     const list = PT_ROWS.filter(function(r){
-      return (jenis === 'all' || r.jenis === jenis) && (!q || (r.nama + ' ' + r.alamat + ' ' + r.asal).toLowerCase().indexOf(q) > -1);
+      return (jenis === 'all' || r.program === jenis) && (!q || (r.nama + ' ' + r.alamat + ' ' + r.asal).toLowerCase().indexOf(q) > -1);
     });
     document.getElementById('pantauRows').innerHTML = list.map(function(r, i){
-      return '<tr><td>' + (i + 1) + '</td><td>' + esc(r.nama) + '</td><td>' + esc(ptName(r.jenis)) + '</td><td>' + (esc(r.alamat) || '-') + '</td><td>' + (esc(r.asal) || '-') + '</td></tr>';
+      return '<tr><td>' + (i + 1) + '</td><td>' + esc(r.nama) + '</td><td>' + (esc(r.program) || '-') + '</td><td>' + (esc(r.alamat) || '-') + '</td><td>' + (esc(r.asal) || '-') + '</td></tr>';
     }).join('');
     const em = document.getElementById('pantauEmpty');
     em.style.display = list.length ? 'none' : 'block';
@@ -1591,9 +1599,9 @@
   var TIPS_PORTAL = ['Memuat data pendaftar…', 'Menyusun rekap dan agenda…', 'Mengumpulkan laporan pelaksanaan…', 'Merapikan semua halaman…'];
   var $ = function(id){ return document.getElementById(id); };
   var BULAN = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
-  var JENIS = { siswa_baru: 'Siswa Baru', siswa_mutasi: 'Siswa Mutasi', pondok_pesantren: 'Pondok Pesantren' };
+  var JENIS = { siswa_baru: 'Siswa Baru', siswa_mutasi: 'Siswa Mutasi', pondok_pesantren: 'Pondok Pesantren (lama)' };
   var STATUS = ['Baru Mendaftar', 'Diverifikasi', 'Diterima', 'Ditolak'];
-  var JALUR = [['siswa_baru', 'Siswa Baru', '#E4A73B'], ['siswa_mutasi', 'Siswa Mutasi', '#2E8B7B'], ['pondok_pesantren', 'Pondok Pesantren', '#8B3A3A']];
+  var JALUR = [['siswa_baru', 'Siswa Baru', '#E4A73B'], ['siswa_mutasi', 'Siswa Mutasi', '#2E8B7B']];
   var STCOLOR = { 'Baru Mendaftar': '#5B6BD6', 'Diverifikasi': '#E4A73B', 'Diterima': '#2E8B7B', 'Ditolak': '#B03A3A' };
 
   function attr(s){ return esc(s).replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
@@ -1711,7 +1719,7 @@
     resetCache();
     A.rekap = d.rekap || null; A.rows = d.pendaftar || []; A.agendas = d.agendas || [];
     A.laporan = d.laporan || []; A.users = d.users || [];
-    if (d.settings) { fillTampilan(d.settings); renderAlur(d.settings.alur || []); renderMenu(d.settings.menus || []); A.settingsLoaded = true; }
+    if (d.settings) { fillTampilan(d.settings); renderAlur(d.settings.alur || []); renderMenu(d.settings.menus || []); renderFormulir(d.settings.formulir || {}); A.settingsLoaded = true; }
     $('loginOverlay').classList.remove('open');
     $('adminApp').style.display = 'block';
     if (A.rekap) renderRekap();
@@ -1770,7 +1778,7 @@
   }
   $('refreshRekap').addEventListener('click', function(){ busy(this, loadRekap); });
   function renderRekap(){
-    var r = A.rekap, t = r.target, tt = t.siswa_baru + t.siswa_mutasi + t.pondok_pesantren, h = '';
+    var r = A.rekap, t = r.target, tt = (t.siswa_baru || 0) + (t.siswa_mutasi || 0), h = '';
     h += '<div class="rk-stats">' + stat('Total Pendaftar', r.total) + stat('Total Target', tt || '—') + stat('Capaian Target', tt ? Math.round(r.total / tt * 100) + '%' : '—') + stat('Sisa Kuota', tt ? Math.max(0, tt - r.total) : '—') + '</div>';
 
     h += '<div class="a-card"><h3>Persentase Capaian Terhadap Target</h3>';
@@ -1840,7 +1848,7 @@
         act += '<button class="btn btn-ghost btn-sm" data-detail="' + attr(r.id) + '">Detail</button>';
         if (can('pendaftar.delete')) act += ' <button class="btn btn-danger btn-sm" data-del="' + attr(r.id) + '">Hapus</button>';
         var tr = document.createElement('tr');
-        tr.innerHTML = '<td>' + esc(r.id) + '</td><td>' + esc(r.timestamp) + '</td><td>' + esc(jenisLabel(r.jenis)) + '</td><td>' + esc(r.nama) + '</td><td>' + esc(r.nisn) + '</td><td>' + esc(r.noHp) + '</td>' +
+        tr.innerHTML = '<td>' + esc(r.id) + '</td><td>' + esc(r.timestamp) + '</td><td>' + esc(jenisLabel(r.jenis)) + '</td><td>' + esc(r.nama) + '</td><td>' + (esc(r.program) || '-') + '</td><td>' + esc(r.noHp) + '</td>' +
           '<td><span class="status-pill status-' + statusClass(r.status) + '">' + esc(r.status) + '</span></td>' +
           '<td>' + (/^https?:\/\//.test(r.berkasUrl) ? '<a href="' + attr(r.berkasUrl) + '" target="_blank" rel="noopener">' + esc(r.berkas) + ' file</a>' : '-') + '</td><td>' + act + '</td>';
         body.appendChild(tr);
@@ -1889,7 +1897,7 @@
     var ex = {}; (r.extra || []).forEach(function(q){ ex[q.label] = q.value; });
     $('dtName').textContent = r.nama;
     $('dtSub').textContent = r.id + ' · ' + jenisLabel(r.jenis) + ' · ' + r.timestamp;
-    var h = '<div class="dt-sec">Kontak & Sekolah</div><div class="dt-grid">' + dtItem('NISN', r.nisn) + dtItem('No. HP', r.noHp) + dtItem('Sekolah Asal', r.asalSekolah) + dtItem('Alamat', r.alamat) + dtItem('Status', r.status) + '</div>';
+    var h = '<div class="dt-sec">Kontak & Sekolah</div><div class="dt-grid">' + dtItem('Program', r.program) + dtItem('No. HP', r.noHp) + dtItem('Sekolah Asal', r.asalSekolah) + dtItem('Alamat', r.alamat) + dtItem('Status', r.status) + '</div>';
     DT_GROUPS.forEach(function(g){
       var items = g[1].filter(function(l){ return ex[l]; });
       if (items.length) h += '<div class="dt-sec">' + g[0] + '</div><div class="dt-grid">' + items.map(function(l){ return dtItem(l, ex[l]); }).join('') + '</div>';
@@ -2103,7 +2111,7 @@
   // ============================================================
   function ensureSettings(){
     if (A.settingsLoaded) return; A.settingsLoaded = true;
-    adminApi('getAdminSettings').then(function(s){ fillTampilan(s); renderAlur(s.alur || []); renderMenu(s.menus || []); })
+    adminApi('getAdminSettings').then(function(s){ fillTampilan(s); renderAlur(s.alur || []); renderMenu(s.menus || []); renderFormulir(s.formulir || {}); })
       .catch(function(err){ A.settingsLoaded = false; fail(err); });
   }
   function fillTampilan(s){
@@ -2202,6 +2210,43 @@
       });
     });
   }
+  function renderFormulir(f){
+    var box = $('formulirList'); box.innerHTML = '';
+    [['siswa_baru', 'Siswa Baru'], ['siswa_mutasi', 'Siswa Mutasi']].forEach(function(j){
+      var cur = f && f[j[0]], row = document.createElement('div'); row.className = 'field';
+      row.innerHTML = '<label>Formulir ' + esc(j[1]) + '</label>' +
+        '<div style="font-size:13px;margin-bottom:8px;">' + (cur ? '✓ Terunggah: <a href="' + attr(cur.url) + '" target="_blank" rel="noopener">' + esc(cur.name) + '</a>' : 'Belum ada formulir.') + '</div>' +
+        '<input type="file" accept="application/pdf" data-fj="' + j[0] + '">' +
+        '<div style="margin-top:10px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;">' +
+        '<button type="button" class="btn btn-ghost btn-sm" data-fup="' + j[0] + '">Unggah PDF</button>' +
+        (cur ? '<button type="button" class="btn btn-danger btn-sm" data-fdel="' + j[0] + '">Hapus</button>' : '') +
+        '<span class="a-save-msg" data-fmsg="' + j[0] + '"></span></div>';
+      box.appendChild(row);
+    });
+  }
+  $('formulirList').addEventListener('click', function(e){
+    var up = e.target.closest('[data-fup]'), del = e.target.closest('[data-fdel]');
+    if (!up && !del) return;
+    var j = (up || del).dataset.fup || (up || del).dataset.fdel;
+    var msg = $('formulirList').querySelector('[data-fmsg="' + j + '"]');
+    function done(res){ renderFormulir(res.formulir || {}); var m = $('formulirList').querySelector('[data-fmsg="' + j + '"]'); m.style.color = 'var(--teal)'; m.textContent = '✓ Tersimpan'; }
+    function bad(err){ msg.style.color = 'var(--err)'; msg.textContent = 'Gagal: ' + err.message; }
+    if (del) {
+      if (!confirm('Hapus formulir ini?')) return;
+      msg.style.color = 'var(--teal)'; msg.textContent = 'Menghapus…';
+      adminApi('deleteFormulir', j).then(done).catch(bad);
+      return;
+    }
+    var f = $('formulirList').querySelector('input[data-fj="' + j + '"]').files[0];
+    msg.style.color = 'var(--err)';
+    if (!f) { msg.textContent = 'Pilih berkas PDF terlebih dahulu.'; return; }
+    if (f.type !== 'application/pdf') { msg.textContent = 'Berkas harus PDF.'; return; }
+    if (f.size > 3 * 1024 * 1024) { msg.textContent = 'Ukuran maksimal 3 MB.'; return; }
+    msg.style.color = 'var(--teal)'; msg.textContent = 'Mengunggah…';
+    readB64(f).then(function(item){
+      return adminApi('uploadFormulir', j, { name: item.name, type: item.type, data: item.data });
+    }).then(done).catch(bad);
+  });
   $('saveMenu').addEventListener('click', function(){ saveWithFeedback({ menus: menuData }, 'msgMenu'); });
 
   apply();

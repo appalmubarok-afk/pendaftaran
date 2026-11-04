@@ -1301,15 +1301,11 @@
         '<h3>'+esc(m.title)+'</h3>' +
         '<div class="label-persyaratan">DOKUMEN PERSYARATAN</div>' +
         '<ul>'+li+'</ul>' +
-        (m.id === 'siswa_baru'
-          ? '<div class="prog-btns">' +
-            '<button class="btn btn-submit" data-jenis="'+encodeURIComponent(m.id)+'" data-prog="Non Boarding">Daftar Non Boarding<small>Hanya sekolah</small></button>' +
-            '<button class="btn btn-submit" data-jenis="'+encodeURIComponent(m.id)+'" data-prog="Boarding School">Daftar Boarding School<small>Sekolah + pondok</small></button></div>'
-          : '<button class="btn btn-submit" data-jenis="'+encodeURIComponent(m.id)+'">Daftar Sekarang</button>');
+        '<button class="btn btn-submit" data-jenis="'+encodeURIComponent(m.id)+'" data-title="'+encodeURIComponent(m.title)+'">Daftar Sekarang</button>';
       menuBox.appendChild(card);
     });
     document.querySelectorAll('.menu-card .btn-submit').forEach(function(btn){
-      btn.addEventListener('click', function(){ startJalur(decodeURIComponent(btn.dataset.jenis), btn.dataset.prog || ''); });
+      btn.addEventListener('click', function(){ startJalur(decodeURIComponent(btn.dataset.jenis)); });
     });
   }
 

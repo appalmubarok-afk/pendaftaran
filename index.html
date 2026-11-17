@@ -1603,8 +1603,18 @@
       document.getElementById('pantauBody').innerHTML = ptDonut(PT_DATA.total, target, 'Pendaftar Siswa Baru');
       document.getElementById('pantauInfo').textContent = 'Total ' + r.total + ' pendaftar · diperbarui ' + r.updated;
       document.getElementById('pantauDetailBtn').style.display = r.listEnabled ? '' : 'none';
+      document.getElementById('pantauShare').style.display = '';
       sec.style.display = '';
-    }).catch(function(err){ console.error('Gagal memuat statistik:', err); sec.style.display = 'none'; });
+    }).catch(function(err){
+      console.error('Gagal memuat statistik:', err);
+      PT_DATA = null;
+      const off = /dinonaktifkan/i.test(err && err.message || '');
+      sec.style.display = off ? 'none' : '';
+      document.getElementById('pantauBody').innerHTML = '<div class="a-empty-state">Data statistik belum dapat dimuat.<br><small>' + esc(err && err.message || '') + '</small></div>';
+      document.getElementById('pantauInfo').textContent = '';
+      document.getElementById('pantauShare').style.display = 'none';
+      document.getElementById('pantauDetailBtn').style.display = 'none';
+    });
   }
   function renderPtRows(){
     const q = document.getElementById('pantauCari').value.trim().toLowerCase();

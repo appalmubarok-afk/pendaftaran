@@ -662,7 +662,16 @@
     .pt-foot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-top:24px;padding-top:18px;border-top:1px dashed var(--line);}
     .pt-foot span{font-size:14.5px;color:var(--ink-soft);}
     .pt-search{border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;font-size:15px;flex:1;min-width:180px;}
-    #pantauOverlay .modal{max-width:940px;}
+    #pantauOverlay .modal{max-width:720px;}
+    .pt-single{display:flex;justify-content:center;padding:6px 0 4px;}
+    .pt-single .rk-dn{width:100%;max-width:300px;}
+    .pt-single .rk-dn svg{max-width:250px;}
+    .pt-single .rk-dn b{font-size:19px;margin-top:10px;}
+    .pt-single .rk-dn small{font-size:15px;}
+    .pt-btns{display:flex;gap:10px;flex-wrap:wrap;}
+    .btn-wa svg{width:22px;height:22px;flex:none;}
+    #pantauShareMsg{color:var(--ink-soft);margin-top:10px;}
+    @media(max-width:640px){.pt-btns{flex-direction:column;}.pt-btns .btn{justify-content:center;width:100%;}}
     #pantauOverlay .a-table-wrap{max-height:55vh;overflow:auto;}
     @media(max-width:640px){.pt-card{padding:22px 14px 18px;border-radius:20px;}.pt-foot{flex-direction:column;align-items:stretch;text-align:center;}.pt-foot .btn{justify-content:center;}}
 
@@ -888,8 +897,9 @@
         <p>Perkembangan jumlah pendaftar jalur Siswa Baru terhadap target penerimaan.</p>
       </div>
       <div class="pt-card">
-        <div class="rk-donuts" id="pantauBody"><div class="a-empty-state" style="grid-column:1/-1">Memuat data…</div></div>
-        <div class="pt-foot"><span id="pantauInfo"></span><button type="button" class="btn btn-gold" id="pantauDetailBtn">Lihat Detil</button></div>
+        <div class="pt-single" id="pantauBody"><div class="a-empty-state" style="grid-column:1/-1">Memuat data…</div></div>
+        <div class="pt-foot"><span id="pantauInfo"></span><div class="pt-btns"><button type="button" class="btn btn-wa" id="pantauShare" aria-label="Bagikan diagram ke WhatsApp"><svg viewBox="0 0 32 32" fill="white" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-2c1.8 1 3.9 1.5 6.3 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.6 1.2 1.2-4.5-.3-.5C5.5 18 5 16.5 5 15c0-6 5-11 11-11s11 5 11 11-5 10.8-11 10.8zm6-8.2c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-2-1.8-2.3-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.8-1-2.4-.3-.6-.5-.5-.7-.6h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.8.7.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg> Bagikan</button><button type="button" class="btn btn-gold" id="pantauDetailBtn">Lihat Detil</button></div></div>
+        <div class="form-msg" id="pantauShareMsg" role="status"></div>
       </div>
     </div>
   </section>
@@ -956,11 +966,10 @@
       <h3>Daftar Pendaftar</h3>
       <p class="modal-sub" id="pantauSub"></p>
       <div class="a-toolbar">
-        <select id="pantauJenis"><option value="all">Semua Program</option><option value="Non Boarding">Non Boarding</option><option value="Boarding School">Boarding School</option></select>
-        <input type="search" class="pt-search" id="pantauCari" placeholder="Cari nama, alamat, atau asal sekolah">
+        <input type="search" class="pt-search" id="pantauCari" placeholder="Cari nama atau asal sekolah">
       </div>
       <div class="a-table-wrap">
-        <table><thead><tr><th>No</th><th>Nama</th><th>Program</th><th>Alamat</th><th>Asal Sekolah</th></tr></thead><tbody id="pantauRows"></tbody></table>
+        <table><thead><tr><th>No</th><th>Nama</th><th>Asal Sekolah</th></tr></thead><tbody id="pantauRows"></tbody></table>
         <div class="a-empty-state" id="pantauEmpty" style="display:none;"></div>
       </div>
     </div>
@@ -989,7 +998,7 @@
           <div id="fileList"></div>
         </div>
         <div class="hp-field" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-        <label class="consent"><input type="checkbox" id="consent" required> <span>Saya menyatakan data yang diisi benar dan menyetujui penggunaan data pribadi (termasuk dokumen yang diunggah) hanya untuk keperluan seleksi penerimaan peserta didik baru. Khusus jalur Siswa Baru, nama (disingkat), desa/kecamatan, dan asal sekolah dapat ditampilkan pada halaman Pantau SPMB.</span></label>
+        <label class="consent"><input type="checkbox" id="consent" required> <span>Saya menyatakan data yang diisi benar dan menyetujui penggunaan data pribadi (termasuk dokumen yang diunggah) hanya untuk keperluan seleksi penerimaan peserta didik baru. Nama (disingkat) dan asal sekolah peserta didik dapat ditampilkan pada halaman Pantau SPMB.</span></label>
         <button type="submit" class="btn fp-submit" id="fpSubmit">Kirim Pendaftaran</button>
         <div class="form-msg" id="fpMsg"></div>
       </form>
@@ -1576,33 +1585,34 @@
   // ============================================================
   // PANTAU SPMB (diagram publik + daftar)
   // ============================================================
-  const PT_PROG = [['Non Boarding','#2E8B7B'],['Boarding School','#8B3A3A']];
-  function ptDonut(n, target, color, title){
-    const r = 52, c = 2 * Math.PI * r, pct = target > 0 ? Math.min(100, n / target * 100) : 0;
-    const arc = pct > 0 ? '<circle cx="65" cy="65" r="' + r + '" fill="none" stroke="' + color + '" stroke-width="14" stroke-linecap="round" stroke-dasharray="' + (c * pct / 100).toFixed(1) + ' ' + c.toFixed(1) + '" transform="rotate(-90 65 65)"/>' : '';
-    const center = target > 0 ? Math.round(n / target * 100) + '%' : String(n);
-    const sub = target > 0 ? n + ' dari ' + target + ' target' : n + ' pendaftar';
-    return '<div class="rk-dn"><svg viewBox="0 0 130 130" role="img" aria-label="' + esc(title) + ': ' + esc(sub) + '"><circle cx="65" cy="65" r="' + r + '" fill="none" stroke="#E4E4EF" stroke-width="14"/>' + arc +
-      '<text x="65" y="73" text-anchor="middle" font-size="24" font-weight="800" fill="#1B1E2E" font-family="Bricolage Grotesque,sans-serif">' + center + '</text></svg><b>' + esc(title) + '</b><small>' + esc(sub) + '</small></div>';
+  let PT_ROWS = [], PT_DATA = null;
+  function ptDonut(n, target, title){
+    const r = 70, c = 2 * Math.PI * r, raw = target > 0 ? n / target * 100 : 0, pct = Math.min(100, raw);
+    const label = target > 0 ? (n > 0 && raw < 1 ? '&lt;1%' : Math.round(raw) + '%') : String(n);
+    const sub = target > 0 ? n + ' dari ' + target + ' target pendaftar' : n + ' pendaftar';
+    const arc = pct > 0 ? '<circle cx="90" cy="90" r="' + r + '" fill="none" stroke="#E4A73B" stroke-width="18" stroke-linecap="round" stroke-dasharray="' + (c * pct / 100).toFixed(1) + ' ' + c.toFixed(1) + '" transform="rotate(-90 90 90)"/>' : '';
+    return '<div class="rk-dn"><svg viewBox="0 0 180 180" role="img" aria-label="' + esc(title) + ': ' + esc(sub) + '"><circle cx="90" cy="90" r="' + r + '" fill="none" stroke="#E4E4EF" stroke-width="18"/>' + arc +
+      '<text x="90" y="92" text-anchor="middle" font-size="38" font-weight="800" fill="#1B1E2E" font-family="Bricolage Grotesque,sans-serif">' + label + '</text>' +
+      '<text x="90" y="116" text-anchor="middle" font-size="13" fill="#5A5F78" font-family="Figtree,sans-serif">' + n + ' pendaftar</text></svg><b>' + esc(title) + '</b><small>' + esc(sub) + '</small></div>';
   }
   function loadPantau(pending){
     const sec = document.getElementById('pantau');
     return (pending || api('getPublicRekap')).then(function(r){
-      const t = r.target || {}, pp = r.perProgram || {};
-      document.getElementById('pantauBody').innerHTML = ptDonut(r.total, t.siswa_baru || 0, '#E4A73B', 'Siswa Baru') +
-        PT_PROG.map(function(p){ return ptDonut(pp[p[0]] || 0, 0, p[1], p[0]); }).join('');
-      document.getElementById('pantauInfo').textContent = 'Total ' + r.total + ' pendaftar siswa baru · diperbarui ' + r.updated;
+      const target = Number(r.target) || 0;
+      PT_DATA = { total: Number(r.total) || 0, target: target, updated: r.updated };
+      document.getElementById('pantauBody').innerHTML = ptDonut(PT_DATA.total, target, 'Pendaftar Siswa Baru');
+      document.getElementById('pantauInfo').textContent = 'Total ' + r.total + ' pendaftar · diperbarui ' + r.updated;
       document.getElementById('pantauDetailBtn').style.display = r.listEnabled ? '' : 'none';
       sec.style.display = '';
-    }).catch(function(){ sec.style.display = 'none'; });
+    }).catch(function(err){ console.error('Gagal memuat statistik:', err); sec.style.display = 'none'; });
   }
   function renderPtRows(){
-    const jenis = document.getElementById('pantauJenis').value, q = document.getElementById('pantauCari').value.trim().toLowerCase();
+    const q = document.getElementById('pantauCari').value.trim().toLowerCase();
     const list = PT_ROWS.filter(function(r){
-      return (jenis === 'all' || r.program === jenis) && (!q || (r.nama + ' ' + r.alamat + ' ' + r.asal).toLowerCase().indexOf(q) > -1);
+      return !q || (r.nama + ' ' + r.asal).toLowerCase().indexOf(q) > -1;
     });
     document.getElementById('pantauRows').innerHTML = list.map(function(r, i){
-      return '<tr><td>' + (i + 1) + '</td><td>' + esc(r.nama) + '</td><td>' + (esc(r.program) || '-') + '</td><td>' + (esc(r.alamat) || '-') + '</td><td>' + (esc(r.asal) || '-') + '</td></tr>';
+      return '<tr><td>' + (i + 1) + '</td><td>' + esc(r.nama) + '</td><td>' + (esc(r.asal) || '-') + '</td></tr>';
     }).join('');
     const em = document.getElementById('pantauEmpty');
     em.style.display = list.length ? 'none' : 'block';
@@ -1614,12 +1624,85 @@
     document.getElementById('pantauRows').innerHTML = ''; em.style.display = 'block'; em.textContent = 'Memuat daftar…';
     api('getPublicDaftar').then(function(d){
       PT_ROWS = d.rows || [];
-      document.getElementById('pantauSub').textContent = 'Total ' + d.total + ' pendaftar' + (d.shown < d.total ? ' (menampilkan ' + d.shown + ' terbaru)' : '') +
-        '. ' + (d.masked ? 'Nama disingkat dan alamat hanya sampai desa/kecamatan demi menjaga privasi.' : '');
+      document.getElementById('pantauSub').textContent = 'Total ' + d.total + ' pendaftar' + (d.shown < d.total ? ' (menampilkan ' + d.shown + ' pertama)' : '') +
+        '.' + (d.masked ? ' Nama disingkat demi menjaga privasi.' : '');
       renderPtRows();
     }).catch(function(err){ em.textContent = 'Gagal memuat: ' + err.message; });
   });
-  document.getElementById('pantauJenis').addEventListener('change', renderPtRows);
+  // ---- Bagikan diagram ke WhatsApp (gambar PNG dibuat di browser) ----
+  if (document.fonts && document.fonts.load){
+    document.fonts.load('800 40px "Bricolage Grotesque"').catch(function(){});
+    document.fonts.load('600 30px "Figtree"').catch(function(){});
+  }
+  function ptPercent(d){ return d.target > 0 ? d.total / d.target * 100 : 0; }
+  function ptPctLabel(d){ const p = ptPercent(d); return d.target > 0 ? (d.total > 0 && p < 1 ? '<1%' : Math.round(p) + '%') : String(d.total); }
+  function ptImage(d){
+    const W = 1080, H = 1080, cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+    const x = cv.getContext('2d'), cs = getComputedStyle(document.documentElement);
+    const navy = (cs.getPropertyValue('--navy') || '').trim() || '#1E2B7B', gold = (cs.getPropertyValue('--gold') || '').trim() || '#E4A73B';
+    const HEAD = '"Bricolage Grotesque","Figtree",sans-serif', BODY = '"Figtree",sans-serif';
+    const nama = (document.getElementById('navBrandName').textContent || '').trim();
+    const g = x.createLinearGradient(0, 0, W, H); g.addColorStop(0, navy); g.addColorStop(1, '#141c5c');
+    x.fillStyle = g; x.fillRect(0, 0, W, H);
+    x.textAlign = 'center'; x.textBaseline = 'alphabetic';
+    x.fillStyle = gold; x.font = '800 38px ' + HEAD; try { x.letterSpacing = '6px'; } catch (e) { /* abaikan */ }
+    x.fillText('PANTAU SPMB', W / 2, 108);
+    try { x.letterSpacing = '0px'; } catch (e) { /* abaikan */ }
+    let fs = 48; x.fillStyle = '#fff';
+    do { x.font = '800 ' + fs + 'px ' + HEAD; fs -= 2; } while (x.measureText(nama).width > W - 140 && fs > 24);
+    x.fillText(nama, W / 2, 172);
+    // kartu putih
+    const cx = 70, cy = 225, cw = W - 140, ch = 660, rad = 48;
+    x.fillStyle = '#fff'; x.beginPath();
+    x.moveTo(cx + rad, cy); x.arcTo(cx + cw, cy, cx + cw, cy + ch, rad); x.arcTo(cx + cw, cy + ch, cx, cy + ch, rad);
+    x.arcTo(cx, cy + ch, cx, cy, rad); x.arcTo(cx, cy, cx + cw, cy, rad); x.closePath(); x.fill();
+    // donut
+    const mx = W / 2, my = 505, r = 185, pct = Math.min(100, ptPercent(d));
+    x.lineWidth = 46; x.lineCap = 'round';
+    x.strokeStyle = '#E4E4EF'; x.beginPath(); x.arc(mx, my, r, 0, Math.PI * 2); x.stroke();
+    if (pct > 0){
+      x.strokeStyle = gold; x.beginPath(); x.arc(mx, my, r, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * pct / 100); x.stroke();
+    }
+    x.fillStyle = '#1B1E2E'; x.font = '800 120px ' + HEAD; x.fillText(ptPctLabel(d), mx, my + 28);
+    x.fillStyle = '#5A5F78'; x.font = '600 36px ' + BODY; x.fillText(d.total + ' pendaftar', mx, my + 86);
+    x.fillStyle = '#1B1E2E'; x.font = '800 44px ' + HEAD;
+    x.fillText(d.target > 0 ? d.total + ' dari ' + d.target + ' target pendaftar' : d.total + ' pendaftar', mx, 800);
+    x.fillStyle = '#5A5F78'; x.font = '600 30px ' + BODY; x.fillText('Pendaftar jalur Siswa Baru', mx, 846);
+    // kaki
+    x.fillStyle = '#C9CCEB'; x.font = '500 28px ' + BODY; x.fillText('Diperbarui ' + (d.updated || ''), mx, 945);
+    x.fillStyle = gold; x.font = '800 44px ' + HEAD; x.fillText('Ayo daftar sekarang!', mx, 1002);
+    x.fillStyle = '#fff'; x.font = '600 27px ' + BODY;
+    let url = (location.host + location.pathname).replace(/\/$/, ''); if (url.length > 60) url = url.slice(0, 57) + '…';
+    x.fillText(url, mx, 1046);
+    return cv;
+  }
+  function dataUrlToBlob(u){
+    const p = u.split(','), mime = /:(.*?);/.exec(p[0])[1], bin = atob(p[1]), a = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) a[i] = bin.charCodeAt(i);
+    return new Blob([a], { type: mime });
+  }
+  document.getElementById('pantauShare').addEventListener('click', function(){
+    const msg = document.getElementById('pantauShareMsg'); msg.textContent = '';
+    if (!PT_DATA){ msg.textContent = 'Data belum siap, coba sesaat lagi.'; return; }
+    const d = PT_DATA, nama = (document.getElementById('navBrandName').textContent || '').trim();
+    const text = 'Pantau SPMB ' + nama + ': ' + d.total + (d.target > 0 ? ' dari ' + d.target + ' target pendaftar (' + ptPctLabel(d) + ')' : ' pendaftar') +
+      '. Daftar sekarang: ' + location.origin + location.pathname;
+    let blob;
+    try { blob = dataUrlToBlob(ptImage(d).toDataURL('image/png')); }
+    catch (err) { msg.textContent = 'Gagal membuat gambar: ' + err.message; return; }
+    const file = new File([blob], 'pantau-spmb.png', { type: 'image/png' });
+    if (navigator.canShare && navigator.canShare({ files: [file] })){
+      navigator.share({ files: [file], text: text, title: 'Pantau SPMB' }).catch(function(err){
+        if (err && err.name !== 'AbortError') msg.textContent = 'Gagal membagikan: ' + err.message;
+      });
+      return;
+    }
+    // cadangan (komputer): simpan gambar lalu buka WhatsApp dengan teks siap kirim
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'pantau-spmb.png';
+    document.body.appendChild(a); a.click(); a.remove();
+    window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank', 'noopener');
+    msg.textContent = 'Gambar tersimpan di perangkat Anda. Lampirkan gambar itu pada chat WhatsApp yang terbuka.';
+  });
   document.getElementById('pantauCari').addEventListener('input', renderPtRows);
   document.getElementById('pantauClose').addEventListener('click', function(){ document.getElementById('pantauOverlay').classList.remove('open'); });
   document.getElementById('pantauOverlay').addEventListener('click', function(e){ if (e.target === this) this.classList.remove('open'); });
